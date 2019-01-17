@@ -32,8 +32,8 @@ call vundle#end()
   " Encoding
   set encoding=utf-8
   " Whitespace
-  set wrap
-  set textwidth=74
+  "set wrap
+  "set textwidth=74
   set formatoptions=tcqrn1
   set tabstop=2
   set shiftwidth=2
@@ -54,7 +54,22 @@ call vundle#end()
 
 " Nerd tree
   map <leader>n :NERDTreeToggle<CR>
-  " close nerd tree if its the only window open
+
+  " open automatically if no arguments has been given
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+  " automatic close when opening a file
+  let NERDTreeQuitOnOpen = 1
+
+  " Prettify
+  let NERDTreeMinimalUI = 1
+  let NERDTreeDirArrows = 1
+
+  " automatically delete the buffer of the file you just deleted
+  let NERDTreeAutoDeleteBuffer = 1
+
+  " close if its the only window open
   autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " bindings

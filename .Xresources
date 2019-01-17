@@ -3,7 +3,8 @@ URxvt*geometry: 120x40
 URxvt*scrollBar: false
 URxvt*saveLines: 2000
 URxvt*buffered: true
-URxvt*font: xft:Source Code Pro Medium:size=13
+URxvt*font: xft:Source Code Pro Medium:size=13,xft:DejaVu Sans:size=14
+Urxvt*letterSpace: 1
 URxvt*termName: rxvt-unicode
 
 Xft.autohint: 0
