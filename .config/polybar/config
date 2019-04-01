@@ -1,55 +1,59 @@
-[custom-colors]
-dark   = #302e36
-red    = #c1442e
-blue   = #83a0a6
-yellow = #f6cd37
-grey   = #aaaaaa
-white  = #ffffff
+;  ----- POLYBAR -----
 
 [colors]
-background = ${custom-colors.dark}
-background-alt = ${custom-colors.red}
-foreground = ${custom-colors.white}
+background = ${xrdb:color0:#222}
+background-alt = #444
+foreground = ${xrdb:color7:#222}
 foreground-alt = #555
-primary = ${custom-colors.blue}
+primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/example]
+[bar/felixbar]
 width = 100%
-height = 35 
-fixed-center = true 
+height = 35
+radius = 0
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 4
+line-size = 3
+line-color = #f00
 
-padding-left = 0
-padding-right = 2
+border-left-size   = 8
+border-top-size    = 8
+border-right-size  = 8
+border-bottom-size = 0
+border-color       = #00000000
 
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=13;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=15;1
+font-0 = fixed:pixelsize=14;1
+font-1 = unifont:fontformat=truetype:size=15:antialias=false;0
+font-2 = WunconSiji:pixelsize=15;0
 
-modules-left = i3
-modules-center = date 
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth battery powermenu
+modules-left = i3 xwindow
+modules-center = date
+modules-right = pulseaudio filesystem xkeyboard memory cpu temperature wlan eth battery powermenu
 
 tray-position = right
 tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
 
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[module/xwindow]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
+
 [module/xkeyboard]
 type = internal/xkeyboard
-blacklist-0 = num lock
 
-format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-prefix-underline = ${colors.secondary}
 
@@ -91,13 +95,15 @@ label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
 ; Separator in between workspaces
-label-separator = |
+; label-separator = |
 
 [module/i3]
 type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
-wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
@@ -125,12 +131,47 @@ label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 ; Separator in between workspaces
-label-separator = |
+; label-separator = |
+
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+format = <ramp>
+label = %percentage%%
+
+; Only applies if <ramp> is used
+ramp-0 = 🌕
+ramp-1 = 🌔
+ramp-2 = 🌓
+ramp-3 = 🌒
+ramp-4 = 🌑
+
+; Only applies if <bar> is used
+bar-width = 10
+bar-indicator = |
+bar-fill = ─
+bar-empty = ─
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix =
+
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -152,19 +193,18 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
-format-disconnected =
+;format-disconnected = Disconnected
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected = disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 0
-ramp-signal-1 = 1
-ramp-signal-2 = 2
-ramp-signal-3 = 3
-ramp-signal-4 = 4
-ramp-signal-foreground = #55aa55
-; ${colors.foreground-alt}
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -192,8 +232,6 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
@@ -204,6 +242,7 @@ type = internal/pulseaudio
 format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%%
 label-volume-foreground = ${root.foreground}
+use-ui-max = false
 
 label-muted = 🔇 muted
 label-muted-foreground = #666
@@ -219,9 +258,10 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = -
+;bar-volume-fill = ─
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = -
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
@@ -231,7 +271,7 @@ battery = BAT0
 adapter = AC0
 full-at = 98
 
-format-charging = laddar<animation-charging> <label-charging>
+format-charging = <animation-charging> <label-charging>
 format-charging-underline = #eeeeee
 
 format-discharging = <animation-discharging> <label-discharging>
@@ -257,6 +297,25 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
@@ -298,3 +357,4 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
+; vim:ft=dosini

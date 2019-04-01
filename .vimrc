@@ -24,7 +24,13 @@ call vundle#end()
 " basics
   filetype plugin indent on
   syntax on
+  " Enable folding
+  set foldmethod=indent
+  set foldlevel=99 "
+
   set nocompatible
+  " set modifiable
+  set ma
   " Security
   set modelines=0
   " Show line numbers

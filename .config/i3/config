@@ -1,6 +1,5 @@
 # i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 #
 # This config file uses keycodes (bindsym) and was written for the QWERTY
 # layout.
@@ -16,7 +15,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font Adobe Source Code Pro 10
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -26,8 +25,10 @@ set $left h
 set $right l
 
 # gaps size
-set $inner 0
-set $outer 0
+set $inner 5
+set $outer 5
+set $newInner 0
+set $newOuter 0
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -118,6 +119,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# Removes border from windows
+new_window pixel 0
+hide_edge_borders vertical
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -154,12 +158,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 gaps inner $inner
 gaps outer $outer
 
-bindsym $mod+t gaps inner current set 15; gaps outer current set 10
+bindsym $mod+t gaps inner current set $newInner; gaps outer current set $newOuter
 bindsym $mod+Shift+t gaps inner current set $inner; gaps outer current set $outer
 
 
-# Launch google chrome
-bindsym $mod+c exec google-chrome-stable
 # Screen
 # increase screen brightness
 bindsym XF86MonBrightnessUp exec --no-startup-id  "light -A 10"
@@ -174,30 +176,39 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "pamixer -d 10"
 # mute sound
 bindsym XF86AudioMute exec --no-startup-id "pamixer -t"
 
+# Change screen output
+bindsym XF86Display exec --no-startup-id "arandr"
+
 # Screenshot
 bindsym Print exec --no-startup-id "deepin-screenshot --save-path /home/felix/Img"
 
-# Emojis in dmenu
-bindsym $mod+p exec --no-startup-id /home/felix/.scripts/emoji/dmenu-emoji
-
-# Start polybar
-exec_always --no-startup-id ~/.config/polybar/launch.sh
-
-# Change keyboard layout (is this correct??)
-exec --no-startup-id setxkbmap -layout se
-
-# Set the background picture
-exec --no-startup-id feh --randomize --bg-fill ~/.wallpapers/**/*.jpg
+# Open terminal with same path
+bindsym $mod+Shift+Return exec urxvt -cd "`xcwd`"
 
 # change backround image
 bindsym $mod+m exec --no-startup-id "feh --randomize --bg-fill ~/.wallpapers/**/*.jpg &"
 
 # set lockscreen with custom effect
-bindsym $mod+shift+x exec betterlockscreen -l dim
+bindsym $mod+Shift+x exec betterlockscreen -l dim
+
+# Launch google chrome
+bindsym $mod+c exec google-chrome-stable
+
+# Launch ranger
+bindsym $mod+grave exec urxvt -e ranger
+
+# Start polybar
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Change keyboard layout
+exec_always --no-startup-id setxkbmap -layout "gb,se" -option "grp:alt_shift_toggle"
+
+# Set the background picture
+exec --no-startup-id feh --randomize --bg-fill ~/.wallpapers/**/*.jpg
+
+# Start slack on startup
+exec --no-startup-id slack
 
 # Launch nm-applet on startup
 exec --no-startup-id nm-applet --sm-disable
 
-# Removes border from windows
-new_window pixel 0
-hide_edge_borders vertical
