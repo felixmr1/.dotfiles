@@ -24,8 +24,13 @@ alias ss="sudo systemctl"
 TERM='rxvt-unicode'
 COLORTERM='rxvt-unicode-256color'
 
+#Show git branch in commandline
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # PS1 conf
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\W\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\$(parse_git_branch) $ \[$(tput sgr0)\]"
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx
