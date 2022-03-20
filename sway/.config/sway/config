@@ -1,21 +1,21 @@
-### Variables
-include config.d/variables.conf
-
 # swaynag error message handler
 # TODO: move this
 swaynag_command $nag -R
 
-### Output conf
-include config.d/keyboard.conf
-
-### Input conf
-include config.d/keyboard.conf
+### Variables
+include config.d/variables.conf
 
 ### Key Bindnings conf
 include config.d/keybindnings.conf
 
+### Input conf
+include config.d/keyboard.conf
+
 ### Modes
 include config.d/modes.conf
+
+## Output conf
+include config.d/output.conf
 
 # Lock screen
 # TODO: add this script and move rule, alternative find another way of locking screen
@@ -25,10 +25,12 @@ bindsym ctrl+alt+l exec ~/bin/idle.sh lock
 #
 # Window rules
 #
-assign [class="Bitwarden"]                    workspace 4
-assign [class="Slack"]                        workspace 6
+assign [class="Discord"]    workspace 6
+assign [class="Slack"]    workspace 6
+assign [class="Steam"]    workspace 4
 
-for_window [class="Rofi"]                        floating enable
+for_window [class="Rofi"] floating enable
+for_window [class="Steam"] floating enable
 
 # Activate correct workspaces
 workspace 1
@@ -37,6 +39,7 @@ workspace 6
 # Autostart apps
 exec sleep 3 && dex --autostart --search-paths $HOME/.config/autostart/ --term alacritty
 
+# TODO: Move to autostart?
 exec $HOME/.local/bin/sunpaper.sh -dw
 
 # Theming
