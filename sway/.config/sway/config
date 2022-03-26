@@ -25,7 +25,7 @@ bindsym ctrl+alt+l exec ~/bin/idle.sh lock
 #
 # Window rules
 #
-assign [class="Discord"]    workspace 6
+assign [class="discord"]    workspace 6
 assign [class="Slack"]    workspace 6
 assign [class="Steam"]    workspace 4
 
@@ -40,9 +40,9 @@ workspace 6
 exec sleep 3 && dex --autostart --search-paths $HOME/.config/autostart/ --term alacritty
 
 # TODO: Move to autostart?
-exec $HOME/.local/bin/sunpaper.sh -dw
+exec $HOME/.local/bin/sunpaper.sh -c && $HOME/.local/bin/sunpaper.sh
 
 # Theming
 default_border pixel 3
-gaps inner 10
+gaps inner 5
 font pango:RobotoCondensed Bold 13
