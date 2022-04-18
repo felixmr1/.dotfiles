@@ -46,3 +46,5 @@ exec $HOME/.local/bin/sunpaper.sh -c && $HOME/.local/bin/sunpaper.sh
 default_border pixel 3
 gaps inner 5
 font pango:RobotoCondensed Bold 13
+
+exec mako
