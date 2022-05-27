@@ -17,16 +17,12 @@ include config.d/modes.conf
 ## Output conf
 include config.d/output.conf
 
-# Lock screen
-# TODO: add this script and move rule, alternative find another way of locking screen
-bindsym ctrl+alt+l exec ~/bin/idle.sh lock
-
 # TODO: move these
 #
 # Window rules
 #
 assign [class="discord"]    workspace 6
-assign [class="Slack"]    workspace 6
+assign [class="slack"]    workspace 6
 assign [class="Steam"]    workspace 4
 
 for_window [class="Rofi"] floating enable
@@ -36,15 +32,13 @@ for_window [class="Steam"] floating enable
 workspace 1
 workspace 6
 
-# Autostart apps
-exec sleep 3 && dex --autostart --search-paths $HOME/.config/autostart/ --term alacritty
-
-# TODO: Move to autostart?
-exec $HOME/.local/bin/sunpaper.sh -c && $HOME/.local/bin/sunpaper.sh
+# fix for waybar slow start https://github.com/swaywm/sway/issues/5732
+exec systemctl --user import-environment
+exec slack
+exec sunpaper.sh -c && sunpaper.sh
+exec mako
 
 # Theming
 default_border pixel 3
 gaps inner 5
 font pango:RobotoCondensed Bold 13
-
-exec mako
