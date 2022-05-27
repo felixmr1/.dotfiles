@@ -41,7 +41,6 @@
         "spacing": 10
     },
     "clock": {
-        "timezone": "Sweden/Stockholm",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt",
         "format-alt": "{:%d-%m-%Y}"
     },
