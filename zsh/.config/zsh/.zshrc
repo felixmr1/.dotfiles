@@ -16,6 +16,8 @@ if [ -f '/home/felix/.local/share/google-cloud-sdk/path.zsh.inc' ]; then . '/hom
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/felix/.local/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/felix/.local/share/google-cloud-sdk/completion.zsh.inc'; fi
 
+[[ -s "/home/felix/.gvm/scripts/gvm" ]] && source "/home/felix/.gvm/scripts/gvm"
+
 # aliases
 alias gs="git status"
 alias einride="cd /home/felix/Dev/einride"
