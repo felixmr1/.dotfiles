@@ -5,7 +5,7 @@ swaynag_command $nag -R
 ### Variables
 include config.d/variables.conf
 
-### Key Bindnings conf
+#y## Key Bindnings conf
 include config.d/keybindnings.conf
 
 ### Input conf
@@ -32,11 +32,10 @@ for_window [class="Steam"] floating enable
 workspace 1
 workspace 6
 
-# fix for waybar slow start https://github.com/swaywm/sway/issues/5732
-exec systemctl --user import-environment
 exec slack
 exec sunpaper.sh -c && sunpaper.sh
 exec mako
+exec eww open bar
 
 # Theming
 default_border pixel 3

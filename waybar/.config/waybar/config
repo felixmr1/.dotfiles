@@ -9,7 +9,7 @@
     "modules-right": ["tray", "custom/sunpaper", "sway/language", "bluetooth", "pulseaudio", "network", "backlight", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": false,
+        "all-outputs": true,
         "format": "{name}",
         "format-icons": {
             "1": "",
