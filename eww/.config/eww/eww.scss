@@ -1,0 +1,25 @@
+* {
+  all: unset;
+}
+
+@import "colors.scss";
+
+.bar {
+    background-color: $bg;
+    border: 1px solid;
+}
+
+.panel{
+    background-color: $bg;
+    border-color: $cyan;
+    border: 1px solid;
+}
+
+.active {
+    color: $cyan;
+}
+
+.dot {
+  background-color: #bbb;
+  border-radius: 50%;
+}
