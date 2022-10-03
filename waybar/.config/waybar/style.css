@@ -1,49 +1,146 @@
 * {
-	font-size: 14px;
-	font-family: CaskaydiaCove Nerd Font;
+    border: none;
+    border-radius: 0;
+	font-size: 15px;
+	font-family: "Font Awsome 6 Free";
+    font-weight: bolder;
+}
+
+@keyframes blink {
+  to {
+    color: @warning_color;
+  }
 }
 
 window#waybar {
-	background: @theme_base_color;
-	color: @theme_text_color;
+    background: transparent;
+}
+window#waybar.hidden {
+    opacity: 0.1;
 }
 
-#workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk,
-#tray {
+#workspaces{
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    border-radius: 10px;
+    transition: none;
+    margin-left: 5px;
+
+    margin-top: 5px;
 }
 
 #workspaces button {
-	padding: 0;
+	color: @theme_text_color;
 }
 #workspaces button.focused {
-	color: @theme_selected_fg_color;
-	background: @theme_fg_color;
+	color: @theme_selected_bg_color;
 }
 
+#workspaces button.persistent {
+	color: gray;
+}
+
+#workspaces button:hover {
+}
+
+#workspaces button.urgent {
+	color: @warning_color;
+}
+
+#language {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
+
+    border-radius: 10px 0px 0px 10px;
+}
+#tray {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
+}
 #pulseaudio {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
 }
-#memory {
+#bluetooth {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
 }
-#cpu {
+#network {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
 }
 #battery {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
+}
+#memory {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
+}
+#cpu{
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
 }
 #disk {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
+}
+#clock {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    border-radius: 0px 10px 10px 0px;
+    padding: 0 18px;
+    transition: none;
+    margin-top: 5px;
+
+    margin-right: 5px;
 }
 
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk {
-	padding: 0 10px;
+
+#bluetooth.connected {
+	color: @success_color;
 }
+
+#network.disconnected {
+	color: @error_color;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+  color: @error_color;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
