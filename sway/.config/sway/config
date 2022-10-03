@@ -49,7 +49,7 @@ font pango:RobotoCondensed Bold 13
 set $gnome-schema org.gnome.desktop.interface
 
 exec_always {
-    gsettings set $gnome-schema gtk-theme 'Catppuccin-Mocha'
+    gsettings set $gnome-schema gtk-theme 'Catppuccin-Mocha-Green'
     gsettings set $gnome-schema icon-theme 'ePapirus'
-    gsettings set $gnome-schema cursor-theme 'Breeze'
+    gsettings set $gnome-schema cursor-theme 'Breeze-Light'
 }
