@@ -1,4 +1,5 @@
-# Colors (Nord)
+window:
+   opacity: 0.9
 font:
   normal:
     family: RobotoMono Nerd Font Mono
@@ -335,4 +336,4 @@ color_schemes:
       cyan:    '#94e2d5' # teal
       white:   '#bac2de' # subtext1
 
-colors: *mocha
+colors: *frappe

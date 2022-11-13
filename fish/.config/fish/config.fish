@@ -49,3 +49,7 @@ alias gs="git status"
 alias einride="cd /home/felix/Dev/einride/"
 alias ld="lazydocker"
 alias lg="lazygit"
+alias bruce-vcu-go="cd ~/Dev/einride/bruce-vcu/go/v4"
+alias simian-adapter="cd ~/Dev/einride/simian-adapter"
+
+set -U fish_user_paths /home/felix/.yarn/bin $fish_user_paths

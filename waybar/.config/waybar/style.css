@@ -47,6 +47,16 @@ window#waybar.hidden {
 	color: @warning_color;
 }
 
+#mode {
+	background-color: @theme_base_color;
+    opacity: 0.8;
+    padding: 0 18px;
+    margin-top: 5px;
+    margin-left: 10px;
+
+    border-radius: 10px 10px 10px 10px;
+}
+
 #language {
 	background-color: @theme_base_color;
     opacity: 0.8;
@@ -106,11 +116,11 @@ window#waybar.hidden {
 #clock {
 	background-color: @theme_base_color;
     opacity: 0.8;
-    border-radius: 0px 10px 10px 0px;
     padding: 0 18px;
-    transition: none;
     margin-top: 5px;
+    padding-top: 1px;
 
+    border-radius: 0px 10px 10px 0px;
     margin-right: 5px;
 }
 

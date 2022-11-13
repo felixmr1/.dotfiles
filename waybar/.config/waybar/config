@@ -54,14 +54,14 @@
         "max-length": 50
     },
     "clock": {
-        "format": "{:%H:%M   -   %a %d %b}",
+        "format": "{:%H:%M}  ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
         "calendar-weeks-pos": "left",
         "on-click": "google-chrome-beta https://calendar.google.com/calendar/u/0/r/day"
     },
 
 	"pulseaudio": {
-		"format": "{icon}",
+		"format": "{volume}% {icon}",
 		"format-muted": "",
 		"format-icons": {
 			"headphones": "",
