@@ -14,8 +14,11 @@ include config.d/keyboard.conf
 ### Modes
 include config.d/modes.conf
 
-## Output conf
+### Output conf
 include config.d/output.conf
+
+### Autostart
+include config.d/autostart.conf
 
 # TODO: move these
 #
@@ -40,6 +43,9 @@ exec slack
 exec sunpaper.sh -c && sunpaper.sh
 exec mako
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec ~/.config/swaylock/config
+
+output * bg "~/Pictures/backgrounds/simon-stalenhag/1 - qWAleCY.jpg" fill
 
 # Theming
 default_border pixel 3

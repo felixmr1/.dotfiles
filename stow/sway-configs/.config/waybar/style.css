@@ -1,3 +1,5 @@
+button:disabled { color: inherit; }
+
 * {
     border: none;
     border-radius: 0;

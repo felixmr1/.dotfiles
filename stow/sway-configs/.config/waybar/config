@@ -14,7 +14,7 @@
         "custom/pacman",
 		"bluetooth",
 		"pulseaudio",
-        "network",
+    "network",
 		"battery",
 		"memory",
 		"cpu",

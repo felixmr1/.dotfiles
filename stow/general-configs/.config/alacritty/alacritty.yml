@@ -1,5 +1,5 @@
 window:
-   opacity: 0.9
+   opacity: 1
 font:
   normal:
     family: RobotoMono Nerd Font Mono
@@ -48,9 +48,9 @@ color_schemes:
       focused_match:
         foreground: '#eff1f5' # base
         background: '#40a02b' # green
-      bar:
-        foreground: '#eff1f5' # base
-        background: '#6c6f85' # subtext0
+    footer_bar:
+      foreground: '#eff1f5' # base
+      background: '#6c6f85' # subtext0
 
     # Keyboard regex hints
     hints:
@@ -127,9 +127,9 @@ color_schemes:
       focused_match:
         foreground: '#303446' # base
         background: '#a6d189' # green
-      bar:
-        foreground: '#303446' # base
-        background: '#a5adce' # subtext0
+    footer_bar:
+      foreground: '#303446' # base
+      background: '#a5adce' # subtext0
 
     # Keyboard regex hints
     hints:
@@ -206,9 +206,9 @@ color_schemes:
       focused_match:
         foreground: '#24273a' # base
         background: '#a6da95' # green
-      bar:
-        foreground: '#24273a' # base
-        background: '#a5adcb' # subtext0
+    footer_bar:
+      foreground: '#24273a' # base
+      background: '#a5adcb' # subtext0
 
     # Keyboard regex hints
     hints:
@@ -285,9 +285,9 @@ color_schemes:
       focused_match:
         foreground: '#1e1e2e' # base
         background: '#a6e3a1' # green
-      bar:
-        foreground: '#1e1e2e' # base
-        background: '#a6adc8' # subtext0
+    footer_bar:
+      foreground: '#1e1e2e' # base
+      background: '#a6adc8' # subtext0
 
     # Keyboard regex hints
     hints:
@@ -336,4 +336,4 @@ color_schemes:
       cyan:    '#94e2d5' # teal
       white:   '#bac2de' # subtext1
 
-colors: *frappe
+colors: *mocha

@@ -1,6 +1,12 @@
 # remove greeting
 set fish_greeting
 
+# Start sway
+if test (tty) = "/dev/tty1"
+
+  sway --unsupported-gpu
+end
+
 # Commands to run in interactive sessions can go here
 if status is-interactive
     set -Ux PYENV_ROOT $HOME/.pyenv
@@ -11,21 +17,6 @@ end
 function fish_user_key_bindings
   fish_vi_key_bindings
 end
-
-# Colors
-#set pure_color_danger red
-#set pure_color_dark	gray
-#set pure_color_info	blue
-#set pure_color_git_unpushed_commits gray
-#set pure_color_mute yellow
-#set pure_color_git_dirty gray
-#set pure_color_hostname fish_color_host
-#set pure_color_light flamingo
-#set pure_color_username_normal fish_color_user
-#set pure_color_normal blue
-#set pure_color_primary green
-#set pure_color_success green
-#set pure_color_warning yellow
 
 # Pure config
 set pure_symbol_git_dirty 🔸
@@ -40,6 +31,7 @@ bass source '/home/felix/.local/share/google-cloud-sdk/path.bash.inc'
 # The next line enables shell command completion for gcloud.
 bass source '/home/felix/.local/share/google-cloud-sdk/completion.bash.inc'
 
+
 source ~/.api_keys
 
 # pyenv
@@ -52,4 +44,12 @@ alias lg="lazygit"
 alias bruce-vcu-go="cd ~/Dev/einride/bruce-vcu/go/v4"
 alias simian-adapter="cd ~/Dev/einride/simian-adapter"
 
+alias nvim="lvim"
+alias lv="lvim"
+
 set -U fish_user_paths /home/felix/.yarn/bin $fish_user_paths
+set -U fish_user_paths /home/felix/.local/bin
+set -Ux QT_QPA_PLATFORM wayland
+
+fish_add_path ~/go/bin
+

@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export ASSUME_NO_MOVING_GC_UNSAFE_RISK_IT_WITH:go1\x2e19
 SETUVAR --export PYENV_ROOT:/home/felix/\x2epyenv
+SETUVAR --export QT_QPA_PLATFORM:wayland
 SETUVAR __fish_initialized:3400
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/conf\x2ed/frappe\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/latte\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/macchiato\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/mocha\x2efish
 SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
@@ -38,7 +39,7 @@ SETUVAR fish_pager_color_description:B3A06D\x1eyellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:cyan\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/felix/\x2eyarn/bin\x1e/home/felix/\x2epyenv/bin
+SETUVAR fish_user_paths:/home/felix/go/bin\x1e/home/felix/\x2elocal/bin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false
 SETUVAR pure_color_at_sign:pure_color_mute

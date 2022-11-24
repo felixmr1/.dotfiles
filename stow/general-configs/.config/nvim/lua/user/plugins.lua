@@ -45,14 +45,12 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim"
   use "kyazdani42/nvim-web-devicons"
   use { "kyazdani42/nvim-tree.lua" }
   use "tamago324/lir.nvim"
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   use "nvim-lualine/lualine.nvim"
-  use "akinsho/toggleterm.nvim"
   use "ahmedkhalf/project.nvim"
   use "lewis6991/impatient.nvim"
   use "lukas-reineke/indent-blankline.nvim"
@@ -65,7 +63,6 @@ return packer.startup(function(use)
   use "nacro90/numb.nvim"
   use "monaqa/dial.nvim"
   use "norcalli/nvim-colorizer.lua"
-  use "windwp/nvim-spectre"
   use "folke/zen-mode.nvim"
   use "karb94/neoscroll.nvim"
   use "folke/todo-comments.nvim"
@@ -79,7 +76,6 @@ return packer.startup(function(use)
   -- use "metakirby5/codi.vim"
   use { "nyngwang/NeoZoom.lua", branch = "neo-zoom-original" }
   use "SmiteshP/nvim-gps"
-  use { "michaelb/sniprun", run = "bash ./install.sh" }
   use {
 
     "iamcco/markdown-preview.nvim",

@@ -1,0 +1,20 @@
+# Fonts
+nerd-fonts-roboto-mono
+ttf-font-awesome
+noto-fonts-emoji-flags
+
+# GTK
+catppuccin-gtk-theme-mocha 
+catppuccin-gtk-theme-macchiato 
+catppuccin-gtk-theme-frappe 
+catppuccin-gtk-theme-latte
+
+# Browsers
+google-chrome
+
+# Dev
+gvm
+buf
+lazygit
+lazydocker
+pyenv
