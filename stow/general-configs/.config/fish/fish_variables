@@ -3,7 +3,7 @@
 SETUVAR --export ASSUME_NO_MOVING_GC_UNSAFE_RISK_IT_WITH:go1\x2e19
 SETUVAR --export PYENV_ROOT:/home/felix/\x2epyenv
 SETUVAR --export QT_QPA_PLATFORM:wayland
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3100
 SETUVAR _fisher_catppuccin_2F_fish_files:\x7e/\x2econfig/fish/conf\x2ed/frappe\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/latte\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/macchiato\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/mocha\x2efish
 SETUVAR _fisher_edc_2F_bass_files:\x7e/\x2econfig/fish/functions/__bass\x2epy\x1e\x7e/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_jgantunes_2F_fish_2D_gvm_files:\x7e/\x2econfig/fish/functions/gvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/gvm\x2efish
