@@ -35,6 +35,8 @@ alias bruce-vcu-go="cd ~/Dev/einride/bruce-vcu/go/v4"
 alias simian-adapter="cd ~/Dev/einride/simian-adapter"
 alias nvim="lvim"
 alias lv="lvim"
+alias sc="source ~/.config/fish/config.fish"
+alias cat="bat --theme=Catppuccin-mocha"
 
 fish_add_path ~/go/bin
 
