@@ -38,7 +38,6 @@ lvim.builtin.treesitter.highlight.enable = true
 lvim.lsp.installer.setup.ensure_installed = {
   "sumneko_lua",
   "jsonls",
-  "golangci_lint_ls",
   "gopls",
   "tflint",
 }
