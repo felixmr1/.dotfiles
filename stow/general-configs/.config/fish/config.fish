@@ -39,3 +39,5 @@ alias cat="bat --theme=Catppuccin-latte"
 
 fish_add_path ~/go/bin
 direnv hook fish | source
+
+set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
