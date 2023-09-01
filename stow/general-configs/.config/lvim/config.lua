@@ -104,7 +104,7 @@ lvim.plugins = {
         goimport = 'gopls', -- goimport command, can be gopls[default] or goimport
         fillstruct = 'gopls', -- can be nil (use fillstruct, slower) and gopls
         gofmt = 'gofumpt', --gofmt cmd,
-        max_line_len = 128, -- max line length in golines format, Target maximum line length for golines
+        max_line_len = 110, -- max line length in golines format, Target maximum line length for golines
         tag_transform = false, -- can be transform option("snakecase", "camelcase", etc) check gomodifytags for details and more options
         gotests_template = "", -- sets gotests -template parameter (check gotests for details)
         gotests_template_dir = "", -- sets gotests -template_dir parameter (check gotests for details)
@@ -115,11 +115,11 @@ lvim.plugins = {
         -- false: do nothing
         -- if lsp_cfg is a table, merge table with with non-default gopls setup in go/lsp.lua, e.g.
         --   lsp_cfg = {settings={gopls={matcher='CaseInsensitive', ['local'] = 'your_local_module_path', gofumpt = true }}}
-        lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
+        lsp_gofumpt = true,  -- true: set default gofmt in gopls format to gofumpt
         lsp_on_attach = nil, -- nil: use on_attach function defined in go/lsp.lua,
         --      when lsp_cfg is true
         -- if lsp_on_attach is a function: use this function as on_attach function for gopls
-        lsp_keymaps = true, -- set to false to disable gopls/lsp keymap
+        lsp_keymaps = true,  -- set to false to disable gopls/lsp keymap
         lsp_codelens = true, -- set to false to disable codelens, true by default, you can use a function
         -- function(bufnr)
         --    vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>F", "<cmd>lua vim.lsp.buf.formatting()<CR>", {noremap=true, silent=true})
@@ -163,26 +163,26 @@ lvim.plugins = {
           -- The color of the hints
           highlight = "Comment",
         },
-        gopls_cmd = nil, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
+        gopls_cmd = nil,          -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
         gopls_remote_auto = true, -- add -remote=auto to gopls
         gocoverage_sign = "█",
-        sign_priority = 5, -- change to a higher number to override other signs
-        dap_debug = true, -- set to false to disable dap
-        dap_debug_keymap = true, -- true: use keymap for debugger defined in go/dap.lua
+        sign_priority = 5,        -- change to a higher number to override other signs
+        dap_debug = true,         -- set to false to disable dap
+        dap_debug_keymap = true,  -- true: use keymap for debugger defined in go/dap.lua
         -- false: do not use keymap in go/dap.lua.  you must define your own.
         -- windows: use visual studio keymap
-        dap_debug_gui = true, -- set to true to enable dap gui, highly recommend
-        dap_debug_vt = true, -- set to true to enable dap virtual text
-        build_tags = "tag1,tag2", -- set default build tags
-        textobjects = true, -- enable default text jobects through treesittter-text-objects
-        test_runner = 'go', -- one of {`go`, `richgo`, `dlv`, `ginkgo`, `gotestsum`}
-        verbose_tests = true, -- set to add verbose flag to tests
-        run_in_floaterm = false, -- set to true to run in float window. :GoTermClose closes the floatterm
+        dap_debug_gui = true,       -- set to true to enable dap gui, highly recommend
+        dap_debug_vt = true,        -- set to true to enable dap virtual text
+        build_tags = "replay,tag2", -- set default build tags
+        textobjects = true,         -- enable default text jobects through treesittter-text-objects
+        test_runner = 'go',         -- one of {`go`, `richgo`, `dlv`, `ginkgo`, `gotestsum`}
+        verbose_tests = true,       -- set to add verbose flag to tests
+        run_in_floaterm = false,    -- set to true to run in float window. :GoTermClose closes the floatterm
         -- float term recommend if you use richgo/ginkgo with terminal color
 
-        trouble = false, -- true: use trouble to open quickfix
+        trouble = false,  -- true: use trouble to open quickfix
         test_efm = false, -- errorfomat for quickfix, default mix mode, set to true will be efm only
-        luasnip = false, -- enable included luasnip snippets. you can also disable while add lua/snips folder to luasnip load
+        luasnip = false,  -- enable included luasnip snippets. you can also disable while add lua/snips folder to luasnip load
         --  Do not enable this if you already added the path, that will duplicate the entries
       })
     end
@@ -200,3 +200,15 @@ lvim.plugins = {
 --     require("nvim-treesitter.highlight").attach(0, "bash")
 --   end,
 -- })
+
+-- Custom whichkeys
+lvim.builtin.which_key.mappings["t"] = {
+  name = "Telescope",
+  r = { "<cmd>Telescope lsp_references<cr>", "References" },
+  i = { "<cmd>Telescope lsp_implementations<cr>", "Implementations" },
+  f = { "<cmd>Telescope lsp_definitions<cr>", "Definitions" },
+  d = { "<cmd>Telescope lsp_document_diagnostics<cr>", "Diagnostics" },
+  q = { "<cmd>Telescope quickfix<cr>", "QuickFix" },
+  l = { "<cmd>Telescope loclist<cr>", "LocationList" },
+  w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Diagnostics" },
+}
