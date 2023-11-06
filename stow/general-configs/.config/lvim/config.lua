@@ -35,12 +35,8 @@ lvim.builtin.treesitter.highlight.enable = true
 -- generic LSP settings
 
 -- make sure server will always be installed even if the server is in skipped_servers list
-lvim.lsp.installer.setup.ensure_installed = {
-  "sumneko_lua",
-  "jsonls",
-  "gopls",
-  "tflint",
-}
+-- lvim.lsp.installer.setup.ensure_installed = {
+-- }
 
 -- formatters
 
@@ -60,6 +56,21 @@ lvim.lsp.automatic_servers_installation = true
 
 -- Additional Plugins
 lvim.plugins = {
+  {
+    'leoluz/nvim-dap-go',
+    config = function()
+      require("typescript").setup({
+        disable_commands = false, -- prevent the plugin from creating Vim commands
+        debug = false,            -- enable debug logging for commands
+        go_to_source_definition = {
+          fallback = true,        -- fall back to standard LSP definition on failure
+        },
+        server = {                -- pass options to lspconfig's setup method
+          -- on_attach = ...,
+        },
+      })
+    end,
+  },
   {
     'leoluz/nvim-dap-go',
     config = function()
@@ -171,13 +182,13 @@ lvim.plugins = {
         dap_debug_keymap = true,  -- true: use keymap for debugger defined in go/dap.lua
         -- false: do not use keymap in go/dap.lua.  you must define your own.
         -- windows: use visual studio keymap
-        dap_debug_gui = true,       -- set to true to enable dap gui, highly recommend
-        dap_debug_vt = true,        -- set to true to enable dap virtual text
-        build_tags = "replay,tag2", -- set default build tags
-        textobjects = true,         -- enable default text jobects through treesittter-text-objects
-        test_runner = 'go',         -- one of {`go`, `richgo`, `dlv`, `ginkgo`, `gotestsum`}
-        verbose_tests = true,       -- set to add verbose flag to tests
-        run_in_floaterm = false,    -- set to true to run in float window. :GoTermClose closes the floatterm
+        dap_debug_gui = true,    -- set to true to enable dap gui, highly recommend
+        dap_debug_vt = true,     -- set to true to enable dap virtual text
+        build_tags = "",         -- set default build tags
+        textobjects = true,      -- enable default text jobects through treesittter-text-objects
+        test_runner = 'go',      -- one of {`go`, `richgo`, `dlv`, `ginkgo`, `gotestsum`}
+        verbose_tests = true,    -- set to add verbose flag to tests
+        run_in_floaterm = false, -- set to true to run in float window. :GoTermClose closes the floatterm
         -- float term recommend if you use richgo/ginkgo with terminal color
 
         trouble = false,  -- true: use trouble to open quickfix
