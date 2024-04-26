@@ -6,6 +6,8 @@ function fish_user_key_bindings
   fish_vi_key_bindings
 end
 
+# source $HOME/.config/fish/api_keys.fish 
+
 # Pure config
 set pure_symbol_git_dirty 🔸
 set pure_symbol_git_unpulled_commits 🔻
@@ -17,7 +19,6 @@ set pure_symbol_git_stash
 if test -f '/home/felix/.profile'
 	bass source '/home/felix/.profile'
 end
-
 
 if test -f ~/.api_keys
 	source ~/.api_keys
@@ -32,16 +33,12 @@ alias gs="git status"
 alias einride="cd /home/felix/Dev/einride/"
 alias ld="lazydocker"
 alias lg="lazygit"
-alias bruce-vcu-go="cd ~/Dev/einride/bruce-vcu/go/v4"
-alias simian-adapter="cd ~/Dev/einride/simian-adapter"
 alias pfs="cd ~/Dev/einride/pod-fusion-service"
+alias ads="cd ~/Dev/einride-autonomous/ads"
 alias sc="source ~/.config/fish/config.fish"
 alias cat="batcat --theme=Catppuccin-latte"
+alias docker-ros="docker run --network host ghcr.io/alpine-ros/alpine-ros:noetic-ros-core"
 
 fish_add_path ~/go/bin
-
-#if which direnv
-#	direnv hook fish | source
-#end
 
 set -x N_PREFIX "$HOME/n"; contains "$N_PREFIX/bin" $PATH; or set -a PATH "$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
