@@ -22,7 +22,6 @@
     ripgrep
 
     # Build tools (for neovim treesitter)
-    gcc
     tree-sitter
 
     # Languages
@@ -43,6 +42,7 @@
     # Utils
     bitwarden-cli
     yq
+    mermaid-cli
   ];
 
   # Git configuration
