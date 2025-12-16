@@ -21,6 +21,10 @@
     fzf
     ripgrep
 
+    # Build tools (for neovim treesitter)
+    gcc
+    tree-sitter
+
     # Languages
     python3
     uv
