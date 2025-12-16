@@ -21,6 +21,9 @@
       # Disable greeting
       set fish_greeting
 
+      # Source secrets (API keys, tokens - not in version control)
+      test -f "$HOME/.secrets.fish"; and source "$HOME/.secrets.fish"
+
       # Source local/work-specific config if exists
       test -f "$HOME/.config/fish/local.fish"; and source "$HOME/.config/fish/local.fish"
 
