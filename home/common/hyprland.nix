@@ -9,13 +9,12 @@
         no_update_news = true;
       };
 
-      # Monitor config (auto-detect)
+      # Monitor (auto-detect)
       monitor = ",preferred,auto,1";
 
       # Autostart
       exec-once = [
         "waybar"
-        "mako"
       ];
 
       # Input
@@ -27,46 +26,25 @@
         };
       };
 
-      # General appearance
+      # Appearance
       general = {
-        gaps_in = 5;
-        gaps_out = 10;
+        gaps_in = 4;
+        gaps_out = 8;
         border_size = 2;
-        "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-        "col.inactive_border" = "rgba(595959aa)";
+        "col.active_border" = "rgba(88c0d0ee)";
+        "col.inactive_border" = "rgba(4c566aee)";
         layout = "dwindle";
       };
 
-      # Decoration
       decoration = {
         rounding = 8;
-        blur = {
-          enabled = true;
-          size = 3;
-          passes = 1;
-        };
-        shadow = {
-          enabled = true;
-          range = 4;
-          render_power = 3;
-        };
       };
 
-      # Animations
       animations = {
         enabled = true;
-        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
-        animation = [
-          "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
-          "fade, 1, 7, default"
-          "workspaces, 1, 6, default"
-        ];
       };
 
-      # Layout
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
       };
 
@@ -81,29 +59,21 @@
 
         # Window management
         "$mod, Q, killactive"
-        "$mod, M, exit"
         "$mod, F, fullscreen"
-        "$mod, V, togglefloating"
-        "$mod, P, pseudo"
-        "$mod, S, togglesplit"
+        "$mod SHIFT, space, togglefloating"
+        "$mod SHIFT, Q, exit"
 
-        # Focus (vim-style hjkl)
+        # Focus (vim-style)
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
         "$mod, k, movefocus, u"
         "$mod, j, movefocus, d"
 
-        # Move windows (vim-style)
+        # Move windows
         "$mod SHIFT, h, movewindow, l"
         "$mod SHIFT, l, movewindow, r"
         "$mod SHIFT, k, movewindow, u"
         "$mod SHIFT, j, movewindow, d"
-
-        # Resize windows (vim-style)
-        "$mod CTRL, h, resizeactive, -50 0"
-        "$mod CTRL, l, resizeactive, 50 0"
-        "$mod CTRL, k, resizeactive, 0 -50"
-        "$mod CTRL, j, resizeactive, 0 50"
 
         # Workspaces
         "$mod, 1, workspace, 1"
@@ -117,7 +87,7 @@
         "$mod, 9, workspace, 9"
         "$mod, 0, workspace, 10"
 
-        # Move to workspace
+        # Move window to workspace
         "$mod SHIFT, 1, movetoworkspace, 1"
         "$mod SHIFT, 2, movetoworkspace, 2"
         "$mod SHIFT, 3, movetoworkspace, 3"
@@ -128,10 +98,6 @@
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
-
-        # Scroll through workspaces
-        "$mod, mouse_down, workspace, e+1"
-        "$mod, mouse_up, workspace, e-1"
       ];
 
       # Mouse bindings
@@ -142,45 +108,24 @@
     };
   };
 
-  # Waybar config
+  # Waybar
   programs.waybar = {
     enable = true;
     settings = {
       mainBar = {
         layer = "top";
         position = "top";
-        height = 30;
+        height = 28;
         modules-left = [ "hyprland/workspaces" ];
         modules-center = [ "hyprland/window" ];
         modules-right = [ "pulseaudio" "network" "battery" "clock" "tray" ];
 
-        clock = {
-          format = "{:%H:%M}";
-          format-alt = "{:%Y-%m-%d}";
-        };
-
-        battery = {
-          format = "{capacity}% {icon}";
-          format-icons = [ "" "" "" "" "" ];
-        };
-
-        network = {
-          format-wifi = "{essid} ";
-          format-ethernet = "ETH ";
-          format-disconnected = "Disconnected ";
-        };
-
-        pulseaudio = {
-          format = "{volume}% {icon}";
-          format-muted = "";
-          format-icons = {
-            default = [ "" "" "" ];
-          };
-        };
-
-        tray = {
-          spacing = 10;
-        };
+        clock.format = "{:%H:%M}";
+        battery.format = "{capacity}% {icon}";
+        network.format-wifi = "{essid} ";
+        network.format-ethernet = "ETH";
+        pulseaudio.format = "{volume}% ";
+        tray.spacing = 8;
       };
     };
     style = ''
@@ -188,21 +133,18 @@
         font-family: "RobotoMono Nerd Font";
         font-size: 13px;
       }
-
       window#waybar {
-        background-color: rgba(30, 30, 46, 0.9);
-        color: #cdd6f4;
+        background: rgba(46, 52, 64, 0.9);
+        color: #eceff4;
       }
-
       #workspaces button {
-        padding: 0 5px;
-        color: #cdd6f4;
+        padding: 0 6px;
+        color: #d8dee9;
       }
-
       #workspaces button.active {
-        background-color: #45475a;
+        background: #5e81ac;
+        color: #eceff4;
       }
-
       #clock, #battery, #network, #pulseaudio, #tray {
         padding: 0 10px;
       }
