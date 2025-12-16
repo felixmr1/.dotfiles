@@ -5,8 +5,7 @@
     ../common
     ../desktop/gnome.nix
     ../desktop/hyprland.nix
-    # Hardware configuration will be generated during install
-    # ./hardware-configuration.nix
+    ./hardware-configuration.nix
   ];
 
   # Hostname
