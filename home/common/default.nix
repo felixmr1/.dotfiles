@@ -16,6 +16,16 @@
     lazygit
     lazydocker
     nodejs_22
+    htop
+    jq
+    fd
+    fzf
+    ripgrep
+
+    # Languages
+    python3
+    uv
+    go
   ];
 
   # Install npm packages on activation
