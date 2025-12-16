@@ -26,6 +26,13 @@
     uv
     go
 
+    # LSP servers (for neovim)
+    lua-language-server
+    nil  # Nix LSP
+    gopls
+    pyright
+    nodePackages.typescript-language-server
+
     # Git/GitHub
     gh
 
