@@ -3,6 +3,7 @@
 {
   imports = [
     ./common
+    ./common/gnome.nix
   ];
 
   home = {
