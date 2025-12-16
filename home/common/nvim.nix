@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   programs.neovim = {
@@ -6,9 +6,6 @@
     defaultEditor = true;
   };
 
-  # Symlink nvim config from dotfiles
-  xdg.configFile."nvim" = {
-    source = ./config/nvim;
-    recursive = true;
-  };
+  # Symlink nvim config directly to dotfiles (not Nix store, so it's writable)
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/home/common/config/nvim";
 }
