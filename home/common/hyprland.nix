@@ -42,6 +42,13 @@
 
       animations = {
         enabled = true;
+        bezier = "snappy, 0.05, 0.9, 0.1, 1.0";
+        animation = [
+          "windows, 1, 2, snappy"
+          "windowsOut, 1, 2, snappy"
+          "fade, 1, 2, snappy"
+          "workspaces, 1, 2, snappy"
+        ];
       };
 
       dwindle = {
