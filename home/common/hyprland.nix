@@ -87,25 +87,23 @@
         "$mod, P, pseudo"
         "$mod, S, togglesplit"
 
-        # Focus
-        "$mod, left, movefocus, l"
-        "$mod, right, movefocus, r"
-        "$mod, up, movefocus, u"
-        "$mod, down, movefocus, d"
-        "$mod, H, movefocus, l"
-        "$mod, L, movefocus, r"
-        "$mod, K, movefocus, u"
-        "$mod, J, movefocus, d"
+        # Focus (vim-style hjkl)
+        "$mod, h, movefocus, l"
+        "$mod, l, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, j, movefocus, d"
 
-        # Move windows
-        "$mod SHIFT, left, movewindow, l"
-        "$mod SHIFT, right, movewindow, r"
-        "$mod SHIFT, up, movewindow, u"
-        "$mod SHIFT, down, movewindow, d"
-        "$mod SHIFT, H, movewindow, l"
-        "$mod SHIFT, L, movewindow, r"
-        "$mod SHIFT, K, movewindow, u"
-        "$mod SHIFT, J, movewindow, d"
+        # Move windows (vim-style)
+        "$mod SHIFT, h, movewindow, l"
+        "$mod SHIFT, l, movewindow, r"
+        "$mod SHIFT, k, movewindow, u"
+        "$mod SHIFT, j, movewindow, d"
+
+        # Resize windows (vim-style)
+        "$mod CTRL, h, resizeactive, -50 0"
+        "$mod CTRL, l, resizeactive, 50 0"
+        "$mod CTRL, k, resizeactive, 0 -50"
+        "$mod CTRL, j, resizeactive, 0 50"
 
         # Workspaces
         "$mod, 1, workspace, 1"
