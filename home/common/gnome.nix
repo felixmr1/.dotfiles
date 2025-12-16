@@ -2,6 +2,13 @@
 
 {
   dconf.settings = {
+    # Enable Pop Shell extension
+    "org/gnome/shell" = {
+      enabled-extensions = [
+        "pop-shell@system76.com"
+      ];
+    };
+
     # Terminal shortcut
     "org/gnome/settings-daemon/plugins/media-keys" = {
       terminal = ["<Super>t"];
