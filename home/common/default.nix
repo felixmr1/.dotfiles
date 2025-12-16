@@ -13,7 +13,6 @@
   # Packages installed to user profile
   home.packages = with pkgs; [
     # CLI tools
-    lazygit
     lazydocker
     nodejs_22
     htop
@@ -26,7 +25,40 @@
     python3
     uv
     go
+
+    # Git/GitHub
+    gh
+
+    # Utils
+    bitwarden-cli
+    yq
   ];
+
+  # Git configuration
+  programs.git = {
+    enable = true;
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+        side-by-side = true;
+        line-numbers = true;
+      };
+    };
+  };
+
+  # Lazygit configuration
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      git = {
+        paging = {
+          colorArg = "always";
+          pager = "delta --paging=never";
+        };
+      };
+    };
+  };
 
   # Install npm packages on activation
   home.activation.installNpmPackages = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
