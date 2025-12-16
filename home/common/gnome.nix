@@ -47,27 +47,24 @@
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q"];
       maximize = ["<Super>m"];
-      minimize = ["<Super>h"];
-      switch-to-workspace-up = ["<Super><Ctrl>Up" "<Super>Page_Up"];
-      switch-to-workspace-down = ["<Super><Ctrl>Down" "<Super>Page_Down"];
-      move-to-workspace-up = ["<Super><Shift><Ctrl>Up" "<Super><Shift>Page_Up"];
-      move-to-workspace-down = ["<Super><Shift><Ctrl>Down" "<Super><Shift>Page_Down"];
+      switch-to-workspace-up = ["<Super><Ctrl>Up" "<Super><Ctrl>k"];
+      switch-to-workspace-down = ["<Super><Ctrl>Down" "<Super><Ctrl>j"];
+      move-to-workspace-up = ["<Super><Shift>Up" "<Super><Shift>k"];
+      move-to-workspace-down = ["<Super><Shift>Down" "<Super><Shift>j"];
     };
 
-    # Pop Shell settings
+    # Pop Shell settings (official Pop!_OS defaults with vim keys)
     "org/gnome/shell/extensions/pop-shell" = {
       tile-by-default = true;
-      toggle-tiling = ["<Super>y"];
+      tile-enter = ["<Super>Return"];
+      toggle-stacking = ["<Super>s"];
       toggle-floating = ["<Super>g"];
       tile-orientation = ["<Super>o"];
-      tile-move-left = ["<Super><Shift>Left"];
-      tile-move-right = ["<Super><Shift>Right"];
-      tile-move-up = ["<Super><Shift>Up"];
-      tile-move-down = ["<Super><Shift>Down"];
-      tile-resize-left = ["<Super><Ctrl>Left"];
-      tile-resize-right = ["<Super><Ctrl>Right"];
-      tile-resize-up = ["<Super><Ctrl>Up"];
-      tile-resize-down = ["<Super><Ctrl>Down"];
+      # Focus with Super+hjkl or Super+arrows
+      focus-left = ["<Super>Left" "<Super>h"];
+      focus-right = ["<Super>Right" "<Super>l"];
+      focus-up = ["<Super>Up" "<Super>k"];
+      focus-down = ["<Super>Down" "<Super>j"];
     };
 
     # Launcher
@@ -75,10 +72,10 @@
       toggle-application-view = ["<Super>a"];
     };
 
-    # Tiling with Super+Arrow
+    # Snap windows left/right
     "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left = ["<Super>Left"];
-      toggle-tiled-right = ["<Super>Right"];
+      toggle-tiled-left = ["<Super><Ctrl>Left" "<Super><Ctrl>h"];
+      toggle-tiled-right = ["<Super><Ctrl>Right" "<Super><Ctrl>l"];
     };
   };
 }
