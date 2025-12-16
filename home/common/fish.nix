@@ -24,9 +24,6 @@
       # Source secrets (API keys, tokens - not in version control)
       test -f "$HOME/.secrets.fish"; and source "$HOME/.secrets.fish"
 
-      # Source local/work-specific config if exists
-      test -f "$HOME/.config/fish/local.fish"; and source "$HOME/.config/fish/local.fish"
-
       # Pure prompt configuration
       set pure_symbol_prompt "❯"
       set pure_symbol_reverse_prompt "❮"

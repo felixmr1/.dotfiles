@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration for felix";
+  description = "NixOS and Home Manager configuration for felix";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -15,24 +15,38 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, nix-darwin, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-darwin, ... }:
     let
       username = "felix";
     in
     {
+      # NixOS system configurations
+      nixosConfigurations = {
+        nixos-vm = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./system/hosts/nixos-vm.nix ];
+        };
+      };
+
+      # Home Manager configurations
       homeConfigurations = {
-        # NixOS configuration
-        "${username}@nixos" = home-manager.lib.homeManagerConfiguration {
+        # Thinkpad X1 Carbon (work laptop, Linux)
+        "${username}@thinkpad-x1-carbon" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [ ./home/nixos.nix ];
+          modules = [ ./home/hosts/thinkpad-x1-carbon.nix ];
         };
 
-        # macOS configuration
-        "${username}@darwin" = home-manager.lib.homeManagerConfiguration {
+        # MacBook Pro (Apple Silicon)
+        "${username}@macbook-pro" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          modules = [ ./home/darwin.nix ];
+          modules = [ ./home/hosts/macbook-pro.nix ];
         };
 
+        # NixOS VM (testing)
+        "${username}@nixos-vm" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [ ./home/hosts/nixos-vm.nix ];
+        };
       };
     };
 }
