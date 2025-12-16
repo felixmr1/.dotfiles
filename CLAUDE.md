@@ -51,6 +51,8 @@ Examples:
 - `fix(fish): prompt colors`
 - `chore(home): update packages`
 
+Keep commits separate per topic, but group related changes together. A single logical change across multiple files should be one commit; unrelated changes should be separate commits.
+
 No Claude Code branding or co-author tags.
 
 ## Conventions
