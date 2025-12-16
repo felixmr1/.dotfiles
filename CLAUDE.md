@@ -33,6 +33,26 @@ sudo nixos-rebuild switch --flake ~/.dotfiles#nixos-vm
 home-manager switch --flake ~/.dotfiles#felix@<host>
 ```
 
+## Git Commits
+
+Follow conventional commits: `type(scope): message`
+
+Types:
+- `feat` - new feature
+- `fix` - bug fix
+- `chore` - maintenance, dependencies
+- `refactor` - code restructuring
+- `docs` - documentation
+
+Scopes: `nvim`, `fish`, `alacritty`, `gnome`, `hyprland`, `system`, `home`, etc.
+
+Examples:
+- `feat(nvim): add lsp config`
+- `fix(fish): prompt colors`
+- `chore(home): update packages`
+
+No Claude Code branding or co-author tags.
+
 ## Conventions
 
 - Cross-platform packages go in `home/common/default.nix`
