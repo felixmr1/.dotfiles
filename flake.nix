@@ -24,7 +24,7 @@
       nixosConfigurations = {
         nixos-vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./system/hosts/nixos-vm.nix ];
+          modules = [ ./system/hosts/nixos-vm ];
         };
       };
 

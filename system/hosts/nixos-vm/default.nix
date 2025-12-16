@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ../common
-    ../desktop/gnome.nix
-    ../desktop/hyprland.nix
+    ../../common
+    ../../desktop/gnome.nix
+    ../../desktop/hyprland.nix
     ./hardware-configuration.nix
   ];
 
@@ -14,7 +14,4 @@
   # VM-specific settings
   services.qemuGuest.enable = true;
   services.spice-vdagentd.enable = true;
-
-  # VM display settings (adjust as needed)
-  # services.xserver.videoDrivers = [ "qxl" ];
 }
