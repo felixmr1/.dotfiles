@@ -4,6 +4,7 @@
   imports = [
     ./common
     ./common/gnome.nix
+    ./common/hyprland.nix
   ];
 
   home = {
