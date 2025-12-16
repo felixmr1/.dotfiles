@@ -8,6 +8,10 @@
     ./hardware-configuration.nix
   ];
 
+  # Boot loader (GRUB for BIOS)
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+
   # Hostname
   networking.hostName = "nixos-vm";
 
