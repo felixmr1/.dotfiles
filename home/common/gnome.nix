@@ -1,6 +1,15 @@
 { config, pkgs, lib, ... }:
 
 {
+  # Set default applications
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/plain" = [ "nvim.desktop" ];
+      "text/x-script" = [ "nvim.desktop" ];
+    };
+  };
+
   dconf.settings = {
     # Enable Pop Shell extension
     "org/gnome/shell" = {
@@ -9,10 +18,29 @@
       ];
     };
 
-    # Terminal shortcut
+    # Terminal shortcut (uses custom command for Alacritty)
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      terminal = ["<Super>t"];
+      terminal = [];  # Disable default, use custom
       home = ["<Super>e"];
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+      ];
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "Terminal";
+      command = "alacritty";
+      binding = "<Super>t";
+    };
+
+    # Default terminal for GNOME
+    "org/gnome/desktop/applications/terminal" = {
+      exec = "alacritty";
+    };
+
+    # Preferred text editor
+    "org/gnome/desktop/applications/editor" = {
+      exec = "nvim";
     };
 
     # Window management
