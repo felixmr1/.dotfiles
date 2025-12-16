@@ -29,12 +29,15 @@
   users.users.felix = {
     isNormalUser = true;
     description = "Felix";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "docker" ];
     shell = pkgs.fish;
   };
 
   # Enable fish system-wide
   programs.fish.enable = true;
+
+  # Docker
+  virtualisation.docker.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
