@@ -5,6 +5,7 @@
     ./fish.nix
     ./alacritty.nix
     ./nvim.nix
+    ./claude.nix
   ];
 
   # Let Home Manager install and manage itself
@@ -48,6 +49,8 @@
   # Git configuration
   programs.git = {
     enable = true;
+    userName = "Felix Rosen";
+    userEmail = "felix.m.rosen@gmail.com";
     delta = {
       enable = true;
       options = {
@@ -56,6 +59,16 @@
         line-numbers = true;
       };
     };
+    includes = [
+      {
+        condition = "gitdir:~/Dev/work/";
+        contents = {
+          user = {
+            email = "felix.todo@todo.com";
+          };
+        };
+      }
+    ];
   };
 
   # Lazygit configuration
@@ -76,11 +89,12 @@
     export PATH="${pkgs.nodejs_22}/bin:$PATH"
     export npm_config_prefix="$HOME/.npm-global"
     mkdir -p "$npm_config_prefix"
-    ${pkgs.nodejs_22}/bin/npm install -g @anthropic-ai/claude-code @opencode-ai/opencode 2>/dev/null || true
+    ${pkgs.nodejs_22}/bin/npm install -g @anthropic-ai/claude-code @opencode-ai/opencode || true
   '';
 
   # Add npm global bin to PATH
   home.sessionPath = [
+    "$HOME/go/bin"
     "$HOME/.npm-global/bin"
   ];
 

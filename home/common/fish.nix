@@ -86,9 +86,4 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
-
-  # Add paths
-  home.sessionPath = [
-    "$HOME/go/bin"
-  ];
 }
