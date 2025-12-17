@@ -46,6 +46,15 @@
   # Docker
   virtualisation.docker.enable = true;
 
+  # Location services (for darkman sunrise/sunset switching)
+  services.geoclue2 = {
+    enable = true;
+    appConfig.darkman = {
+      isAllowed = true;
+      isSystem = false;
+    };
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
