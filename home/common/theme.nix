@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   gtk = {
@@ -12,7 +12,7 @@
     };
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = lib.mkForce pkgs.papirus-icon-theme;
     };
   };
 
