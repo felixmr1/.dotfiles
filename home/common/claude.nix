@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  home.file.".claude.json".text = builtins.toJSON {
+  programs.claude-code = {
+    enable = true;
+
     mcpServers = {
       context7 = {
         type = "stdio";

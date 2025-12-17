@@ -25,7 +25,6 @@
     fd
     fzf
     ripgrep
-    claude-code
     opencode
 
     # Build tools (for neovim treesitter)
