@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./session.nix
     ./fish.nix
     ./alacritty.nix
     ./nvim.nix
@@ -88,16 +89,6 @@
       };
     };
   };
-
-	environment.sessionVariables = {
-		npm_config_prefix = "$HOME/.npm-global";
-  };
-
-  # Add extra paths
-  home.sessionPath = [
-    "$HOME/go/bin"
-    "$HOME/.npm-global/bin"
-  ];
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release

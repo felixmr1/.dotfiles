@@ -13,6 +13,10 @@
 
     # Environment variables
     shellInit = ''
+      # Session variables (fish can't source ~/.nix-profile/etc/profile.d/hm-session-vars.sh)
+      set -gx EDITOR nvim
+      set -gx npm_config_prefix "$HOME/.npm-global"
+
       # GPG signing for git commits
       set -gx GPG_TTY (tty)
     '';
@@ -82,8 +86,4 @@
     };
   };
 
-  # Set default editor
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
 }
