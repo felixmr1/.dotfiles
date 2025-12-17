@@ -73,10 +73,5 @@
       toggle-application-view = ["<Super>a"];
     };
 
-    # Snap windows left/right
-    "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left = ["<Super><Ctrl>Left" "<Super><Ctrl>h"];
-      toggle-tiled-right = ["<Super><Ctrl>Right" "<Super><Ctrl>l"];
-    };
   };
 }
