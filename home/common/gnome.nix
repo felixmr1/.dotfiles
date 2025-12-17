@@ -91,6 +91,15 @@
       move-to-monitor-down = ["<Super><Shift>Down" "<Super><Shift>j"];
     };
 
+    # Fixed 9 workspaces for reliable numbered switching
+    "org/gnome/mutter" = {
+      dynamic-workspaces = false;
+    };
+
+    "org/gnome/desktop/wm/preferences" = {
+      num-workspaces = 9;
+    };
+
     # Disable mutter half-screen snap (Pop Shell handles tiling)
     "org/gnome/mutter/keybindings" = {
       toggle-tiled-left = [];
