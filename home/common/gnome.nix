@@ -1,5 +1,9 @@
 { config, pkgs, lib, ... }:
 
+let
+  # Helper for disabling keybindings
+  emptyKeybind = lib.gvariant.mkEmptyArray lib.gvariant.type.string;
+in
 {
   # Set default applications
   xdg.mimeApps = {
@@ -21,7 +25,7 @@
 
     # Terminal shortcut (uses custom command for Alacritty)
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      terminal = [];  # Disable default, use custom
+      terminal = emptyKeybind;  # Disable default, use custom
       home = ["<Super>e"];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
@@ -47,7 +51,7 @@
     # Window management
     "org/gnome/desktop/wm/keybindings" = {
       # Disable GNOME defaults that conflict with Pop Shell
-      minimize = [];  # Frees Super+h for Pop Shell focus-left
+      minimize = emptyKeybind;  # Frees Super+h for Pop Shell focus-left
 
       close = ["<Super>q"];
       maximize = ["<Super>m"];
@@ -55,8 +59,8 @@
       # Workspace navigation (h/l for GNOME 40+ horizontal workspaces)
       switch-to-workspace-left = ["<Super><Ctrl>Left" "<Super><Ctrl>h"];
       switch-to-workspace-right = ["<Super><Ctrl>Right" "<Super><Ctrl>l"];
-      switch-to-workspace-up = [];    # Disable, we use left/right
-      switch-to-workspace-down = [];
+      switch-to-workspace-up = emptyKeybind;
+      switch-to-workspace-down = emptyKeybind;
 
       # Direct workspace switching (Super+1-9)
       switch-to-workspace-1 = ["<Super>1"];
@@ -72,8 +76,8 @@
       # Move window to workspace
       move-to-workspace-left = ["<Super><Shift>Left" "<Super><Shift>h"];
       move-to-workspace-right = ["<Super><Shift>Right" "<Super><Shift>l"];
-      move-to-workspace-up = [];      # Disable, we use left/right
-      move-to-workspace-down = [];
+      move-to-workspace-up = emptyKeybind;
+      move-to-workspace-down = emptyKeybind;
 
       # Move window to specific workspace (Super+Shift+1-9)
       move-to-workspace-1 = ["<Super><Shift>1"];
@@ -102,8 +106,8 @@
 
     # Disable mutter half-screen snap (Pop Shell handles tiling)
     "org/gnome/mutter/keybindings" = {
-      toggle-tiled-left = [];
-      toggle-tiled-right = [];
+      toggle-tiled-left = emptyKeybind;
+      toggle-tiled-right = emptyKeybind;
     };
 
     # Pop Shell settings (official Pop!_OS defaults with vim keys)
@@ -120,9 +124,18 @@
       focus-down = ["<Super>Down" "<Super>j"];
     };
 
-    # Launcher
+    # Launcher and disable Super+number for dock apps (frees for workspace switching)
     "org/gnome/shell/keybindings" = {
       toggle-application-view = ["<Super>a"];
+      switch-to-application-1 = emptyKeybind;
+      switch-to-application-2 = emptyKeybind;
+      switch-to-application-3 = emptyKeybind;
+      switch-to-application-4 = emptyKeybind;
+      switch-to-application-5 = emptyKeybind;
+      switch-to-application-6 = emptyKeybind;
+      switch-to-application-7 = emptyKeybind;
+      switch-to-application-8 = emptyKeybind;
+      switch-to-application-9 = emptyKeybind;
     };
 
   };
