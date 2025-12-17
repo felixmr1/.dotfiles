@@ -14,6 +14,7 @@
     packages = with pkgs; [
       wl-clipboard
       gcc
+      google-chrome
     ];
   };
 }
