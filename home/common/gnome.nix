@@ -11,10 +11,11 @@
   };
 
   dconf.settings = {
-    # Enable Pop Shell extension
+    # Enable extensions
     "org/gnome/shell" = {
       enabled-extensions = [
         "pop-shell@system76.com"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
       ];
     };
 

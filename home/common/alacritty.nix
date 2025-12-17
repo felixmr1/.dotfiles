@@ -8,6 +8,7 @@
       # Window settings
       window = {
         opacity = 1.0;
+        decorations = "None";  # Hide title bar
       };
 
       # Font configuration
