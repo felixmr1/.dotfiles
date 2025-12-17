@@ -47,10 +47,11 @@
     "org/gnome/desktop/wm/keybindings" = {
       close = ["<Super>q"];
       maximize = ["<Super>m"];
-      switch-to-workspace-up = ["<Super><Ctrl>Up" "<Super><Ctrl>k"];
-      switch-to-workspace-down = ["<Super><Ctrl>Down" "<Super><Ctrl>j"];
-      move-to-workspace-up = ["<Super><Shift>Up" "<Super><Shift>k"];
-      move-to-workspace-down = ["<Super><Shift>Down" "<Super><Shift>j"];
+      # Horizontal workspaces (GNOME 40+)
+      switch-to-workspace-left = ["<Super><Ctrl>Left" "<Super><Ctrl>h"];
+      switch-to-workspace-right = ["<Super><Ctrl>Right" "<Super><Ctrl>l"];
+      move-to-workspace-left = ["<Super><Shift>Left" "<Super><Shift>h"];
+      move-to-workspace-right = ["<Super><Shift>Right" "<Super><Shift>l"];
     };
 
     # Pop Shell settings (official Pop!_OS defaults with vim keys)
