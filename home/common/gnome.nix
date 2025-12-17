@@ -58,11 +58,33 @@
       switch-to-workspace-up = [];    # Disable, we use left/right
       switch-to-workspace-down = [];
 
+      # Direct workspace switching (Super+1-9)
+      switch-to-workspace-1 = ["<Super>1"];
+      switch-to-workspace-2 = ["<Super>2"];
+      switch-to-workspace-3 = ["<Super>3"];
+      switch-to-workspace-4 = ["<Super>4"];
+      switch-to-workspace-5 = ["<Super>5"];
+      switch-to-workspace-6 = ["<Super>6"];
+      switch-to-workspace-7 = ["<Super>7"];
+      switch-to-workspace-8 = ["<Super>8"];
+      switch-to-workspace-9 = ["<Super>9"];
+
       # Move window to workspace
       move-to-workspace-left = ["<Super><Shift>Left" "<Super><Shift>h"];
       move-to-workspace-right = ["<Super><Shift>Right" "<Super><Shift>l"];
       move-to-workspace-up = [];      # Disable, we use left/right
       move-to-workspace-down = [];
+
+      # Move window to specific workspace (Super+Shift+1-9)
+      move-to-workspace-1 = ["<Super><Shift>1"];
+      move-to-workspace-2 = ["<Super><Shift>2"];
+      move-to-workspace-3 = ["<Super><Shift>3"];
+      move-to-workspace-4 = ["<Super><Shift>4"];
+      move-to-workspace-5 = ["<Super><Shift>5"];
+      move-to-workspace-6 = ["<Super><Shift>6"];
+      move-to-workspace-7 = ["<Super><Shift>7"];
+      move-to-workspace-8 = ["<Super><Shift>8"];
+      move-to-workspace-9 = ["<Super><Shift>9"];
 
       # Move window between displays (j/k since h/l is workspace nav)
       move-to-monitor-up = ["<Super><Shift>Up" "<Super><Shift>k"];
