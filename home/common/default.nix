@@ -54,14 +54,10 @@
   # Git configuration
   programs.git = {
     enable = true;
-    userName = "Felix Rosen";
-    userEmail = "felix.m.rosen@gmail.com";
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        side-by-side = true;
-        line-numbers = true;
+    settings = {
+      user = {
+        name = "Felix Rosen";
+        email = "felix.m.rosen@gmail.com";
       };
     };
     includes = [
@@ -74,6 +70,17 @@
         };
       }
     ];
+  };
+
+  # Delta (git pager)
+  programs.delta = {
+    enable = true;
+    enableGitIntegration = true;
+    options = {
+      navigate = true;
+      side-by-side = true;
+      line-numbers = true;
+    };
   };
 
   # Lazygit configuration
