@@ -33,6 +33,13 @@
     shell = pkgs.fish;
   };
 
+  # Keyboard - remap Caps Lock to Escape
+  services.xserver.xkb = {
+    layout = "us,se";
+    options = "caps:escape";
+  };
+  console.useXkbConfig = true;
+
   # Enable fish system-wide
   programs.fish.enable = true;
 
