@@ -15,11 +15,6 @@
     ANTHROPIC_VERTEX_PROJECT_ID = "e-gemini-cli-prod";
   };
 
-  # Machine-specific PATH
-  home.sessionPath = [
-    "$HOME/.opencode/bin"
-  ];
-
   # Thinkpad-specific packages
   home.packages = with pkgs; [
     # Add thinkpad-specific packages here
