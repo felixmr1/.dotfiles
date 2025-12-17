@@ -11,6 +11,9 @@
   # Let Home Manager install and manage itself
   programs.home-manager.enable = true;
 
+  # Allow unfree packages (claude-code, etc.)
+  nixpkgs.config.allowUnfree = true;
+
   # Packages installed to user profile
   home.packages = with pkgs; [
     # CLI tools
