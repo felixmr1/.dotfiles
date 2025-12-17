@@ -29,15 +29,15 @@
       set fish_greeting
 
       # Source secrets (API keys, tokens - not in version control)
-      test -f "$HOME/.secrets.fish"; and source "$HOME/.secrets.fish"
+      test -f "$HOME/.api-keys.fish"; and source "$HOME/.api-keys.fish"
 
       # Pure prompt configuration
       set pure_symbol_prompt "❯"
       set pure_symbol_reverse_prompt "❮"
-      set pure_symbol_git_dirty "*"
-      set pure_symbol_git_stash "≡"
-      set pure_symbol_git_unpulled_commits "⇣"
-      set pure_symbol_git_unpushed_commits "⇡"
+      set pure_symbol_git_dirty "🔸"
+      set pure_symbol_git_stash ""
+      set pure_symbol_git_unpulled_commits "🔻"
+      set pure_symbol_git_unpushed_commits "🔺"
 
       # Pure colors
       set pure_color_primary blue

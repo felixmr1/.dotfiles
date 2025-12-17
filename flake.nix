@@ -13,9 +13,11 @@
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-darwin, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-darwin, catppuccin, ... }:
     let
       username = "felix";
     in
@@ -33,7 +35,10 @@
         # Thinkpad X1 Carbon (work laptop, Linux)
         "${username}@thinkpad-x1-carbon" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [ ./home/hosts/thinkpad-x1-carbon.nix ];
+          modules = [
+            catppuccin.homeManagerModules.catppuccin
+            ./home/hosts/thinkpad-x1-carbon.nix
+          ];
         };
 
         # MacBook Pro (Apple Silicon)
@@ -45,7 +50,10 @@
         # NixOS VM (testing)
         "${username}@nixos-vm" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [ ./home/hosts/nixos-vm.nix ];
+          modules = [
+            catppuccin.homeManagerModules.catppuccin
+            ./home/hosts/nixos-vm.nix
+          ];
         };
       };
     };
