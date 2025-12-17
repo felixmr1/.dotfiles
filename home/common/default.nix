@@ -89,9 +89,8 @@
     };
   };
 
-  # npm global install location (nix store is read-only)
-  home.sessionVariables = {
-    npm_config_prefix = "$HOME/.npm-global";
+	environment.sessionVariables = {
+		npm_config_prefix = "$HOME/.npm-global";
   };
 
   # Add extra paths
