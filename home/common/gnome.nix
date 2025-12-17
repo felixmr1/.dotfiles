@@ -45,13 +45,33 @@
 
     # Window management
     "org/gnome/desktop/wm/keybindings" = {
+      # Disable GNOME defaults that conflict with Pop Shell
+      minimize = [];  # Frees Super+h for Pop Shell focus-left
+
       close = ["<Super>q"];
       maximize = ["<Super>m"];
-      # Horizontal workspaces (GNOME 40+)
+
+      # Workspace navigation (h/l for GNOME 40+ horizontal workspaces)
       switch-to-workspace-left = ["<Super><Ctrl>Left" "<Super><Ctrl>h"];
       switch-to-workspace-right = ["<Super><Ctrl>Right" "<Super><Ctrl>l"];
+      switch-to-workspace-up = [];    # Disable, we use left/right
+      switch-to-workspace-down = [];
+
+      # Move window to workspace
       move-to-workspace-left = ["<Super><Shift>Left" "<Super><Shift>h"];
       move-to-workspace-right = ["<Super><Shift>Right" "<Super><Shift>l"];
+      move-to-workspace-up = [];      # Disable, we use left/right
+      move-to-workspace-down = [];
+
+      # Move window between displays (j/k since h/l is workspace nav)
+      move-to-monitor-up = ["<Super><Shift>Up" "<Super><Shift>k"];
+      move-to-monitor-down = ["<Super><Shift>Down" "<Super><Shift>j"];
+    };
+
+    # Disable mutter half-screen snap (Pop Shell handles tiling)
+    "org/gnome/mutter/keybindings" = {
+      toggle-tiled-left = [];
+      toggle-tiled-right = [];
     };
 
     # Pop Shell settings (official Pop!_OS defaults with vim keys)
