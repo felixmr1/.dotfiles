@@ -117,11 +117,19 @@ in
       toggle-stacking = ["<Super>s"];
       toggle-floating = ["<Super>g"];
       tile-orientation = ["<Super>o"];
-      # Focus with Super+hjkl or Super+arrows
+
+      # Focus with Super+hjkl
       focus-left = ["<Super>Left" "<Super>h"];
       focus-right = ["<Super>Right" "<Super>l"];
       focus-up = ["<Super>Up" "<Super>k"];
       focus-down = ["<Super>Down" "<Super>j"];
+
+      # Disable Pop Shell's tile-move (frees Super+Shift+hjkl for GNOME)
+      # GNOME handles: H/L = workspace left/right, J/K = monitor up/down
+      tile-move-left = emptyKeybind;
+      tile-move-right = emptyKeybind;
+      tile-move-up = emptyKeybind;
+      tile-move-down = emptyKeybind;
     };
 
     # Launcher and disable Super+number for dock apps (frees for workspace switching)
