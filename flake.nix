@@ -36,7 +36,7 @@
         "${username}@thinkpad-x1-carbon" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
             ./home/hosts/thinkpad-x1-carbon.nix
           ];
         };
@@ -51,7 +51,7 @@
         "${username}@nixos-vm" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
             ./home/hosts/nixos-vm.nix
           ];
         };
