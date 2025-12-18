@@ -17,6 +17,6 @@
 
   # Thinkpad-specific packages
   home.packages = with pkgs; [
-    # Add thinkpad-specific packages here
+    slack
   ];
 }

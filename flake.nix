@@ -15,9 +15,11 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-darwin, catppuccin, ... }:
+  outputs = { self, nixpkgs, home-manager, nix-darwin, catppuccin, nixos-hardware, ... }:
     let
       username = "felix";
     in
@@ -28,16 +30,24 @@
           system = "x86_64-linux";
           modules = [ ./system/hosts/nixos-vm ];
         };
+
+        thinkpad-p1 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-p1
+            ./system/hosts/thinkpad-p1
+          ];
+        };
       };
 
       # Home Manager configurations
       homeConfigurations = {
-        # Thinkpad X1 Carbon (work laptop, Linux)
-        "${username}@thinkpad-x1-carbon" = home-manager.lib.homeManagerConfiguration {
+        # ThinkPad P1 Gen 6 (work laptop, Linux)
+        "${username}@thinkpad-p1" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [
             catppuccin.homeModules.catppuccin
-            ./home/hosts/thinkpad-x1-carbon.nix
+            ./home/hosts/thinkpad-p1.nix
           ];
         };
 

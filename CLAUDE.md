@@ -30,7 +30,7 @@ Be an opinionated expert in Linux, Nix, and NixOS. Take a teaching approach - Fe
 
 | Host | Platform | Usage |
 |------|----------|-------|
-| thinkpad-x1-carbon | x86_64-linux | Work laptop |
+| thinkpad-p1 | x86_64-linux | Work laptop (ThinkPad P1 Gen 6) |
 | macbook-pro | aarch64-darwin | Personal Mac |
 | nixos-vm | x86_64-linux | Testing VM |
 
