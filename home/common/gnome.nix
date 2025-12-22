@@ -125,7 +125,7 @@ in
 
     # Pop Shell settings (official Pop!_OS defaults with vim keys)
     "org/gnome/shell/extensions/pop-shell" = {
-      tile-by-default = true;
+      tile-by-default = false;
       tile-enter = ["<Super>Return"];
       toggle-stacking = ["<Super>s"];
       toggle-floating = ["<Super>g"];
