@@ -32,6 +32,7 @@ in
       enabled-extensions = [
         "pop-shell@system76.com"
         "user-theme@gnome-shell-extensions.gcampax.github.com"
+        "appindicatorsupport@rgcjonas.gmail.com"
       ];
     };
 

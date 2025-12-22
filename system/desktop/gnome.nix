@@ -9,6 +9,7 @@
   # Pop Shell for tiling
   environment.systemPackages = with pkgs; [
     gnomeExtensions.pop-shell
+    gnomeExtensions.appindicator
   ];
 
   # Exclude some default GNOME apps
