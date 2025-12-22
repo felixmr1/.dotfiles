@@ -79,7 +79,6 @@
     enableGitIntegration = true;
     options = {
       navigate = true;
-      side-by-side = true;
       line-numbers = true;
     };
   };
@@ -91,7 +90,7 @@
       git.pagers = [
         {
           colorArg = "always";
-          pager = "delta --paging=never --no-side-by-side";
+          pager = "delta --paging=never";
         }
       ];
     };
