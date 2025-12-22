@@ -37,11 +37,13 @@
     uv
     go
 
-    # LSP servers (for neovim)
+    # LSP servers and linters
     lua-language-server
-    nil  # Nix LSP
+    nil
     gopls
+    golangci-lint
     pyright
+    terraform-ls
     nodePackages.typescript-language-server
 
     # Git/GitHub
@@ -66,9 +68,7 @@
       {
         condition = "gitdir:~/Dev/work/";
         contents = {
-          user = {
-            email = "felix.rosen@einride.tech";
-          };
+          user.email = "felix.rosen@einride.tech";
         };
       }
     ];
@@ -92,7 +92,7 @@
       git.pagers = [
         {
           colorArg = "always";
-          pager = "delta --paging=never";
+          pager = "delta --paging=never --side-by-side=false";
         }
       ];
     };

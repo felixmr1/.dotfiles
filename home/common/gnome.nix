@@ -35,10 +35,11 @@ in
       ];
     };
 
-    # Terminal shortcut (uses custom command for Alacritty)
+    # Terminal shortcut and screen lock
     "org/gnome/settings-daemon/plugins/media-keys" = {
       terminal = emptyKeybind;  # Disable default, use custom
       home = ["<Super>e"];
+      screensaver = ["<Super>Escape"];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
       ];

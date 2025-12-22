@@ -29,7 +29,7 @@
       set fish_greeting
 
       # Source secrets (API keys, tokens - not in version control)
-      test -f "$HOME/.api-keys.fish"; and source "$HOME/.api-keys.fish"
+      test -f "$HOME/.secrets.fish"; and source "$HOME/.secrets.fish"
 
       # Pure prompt configuration
       set pure_symbol_prompt "❯"
