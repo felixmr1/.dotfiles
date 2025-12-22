@@ -46,9 +46,6 @@
   # Docker
   virtualisation.docker.enable = true;
 
-  # Location services
-  services.geoclue2.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
