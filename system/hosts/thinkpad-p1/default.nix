@@ -10,6 +10,7 @@
   # Boot loader (UEFI with systemd-boot)
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.timeout = 1; # Auto-boot after 1 second
 
   # Hostname
   networking.hostName = "thinkpad-p1";
