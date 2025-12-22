@@ -26,11 +26,6 @@
     {
       # NixOS system configurations
       nixosConfigurations = {
-        nixos-vm = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [ ./system/hosts/nixos-vm ];
-        };
-
         thinkpad-p1 = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -55,15 +50,6 @@
         "${username}@macbook-pro" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-darwin;
           modules = [ ./home/hosts/macbook-pro.nix ];
-        };
-
-        # NixOS VM (testing)
-        "${username}@nixos-vm" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [
-            catppuccin.homeModules.catppuccin
-            ./home/hosts/nixos-vm.nix
-          ];
         };
       };
     };

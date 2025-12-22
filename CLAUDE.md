@@ -32,13 +32,12 @@ Be an opinionated expert in Linux, Nix, and NixOS. Take a teaching approach - Fe
 |------|----------|-------|
 | thinkpad-p1 | x86_64-linux | Work laptop (ThinkPad P1 Gen 6) |
 | macbook-pro | aarch64-darwin | Personal Mac |
-| nixos-vm | x86_64-linux | Testing VM |
 
 ## Commands
 
 ```bash
 # NixOS system rebuild
-sudo nixos-rebuild switch --flake ~/.dotfiles#nixos-vm
+sudo nixos-rebuild switch --flake ~/.dotfiles#thinkpad-p1
 
 # Home Manager switch
 home-manager switch --flake ~/.dotfiles#felix@<host>

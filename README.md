@@ -8,7 +8,6 @@ NixOS + Home Manager configuration for multiple machines (Linux and macOS).
 |------|----------|-------|
 | thinkpad-p1 | x86_64-linux | Work laptop (ThinkPad P1 Gen 6) |
 | macbook-pro | aarch64-darwin | Personal Mac |
-| nixos-vm | x86_64-linux | Testing VM |
 
 ## Installation
 
