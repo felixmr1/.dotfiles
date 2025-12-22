@@ -49,7 +49,15 @@
   # Location services (for darkman sunrise/sunset switching)
   services.geoclue2 = {
     enable = true;
+    enableWifi = true;  # Improves location accuracy
+    # Grant all users access (needed for user-level darkman service)
+    geoProviderUrl = "https://location.services.mozilla.com/v1/geolocate?key=geoclue";
     appConfig.darkman = {
+      isAllowed = true;
+      isSystem = false;
+    };
+    # Allow desktop applications to use geoclue
+    appConfig."org.freedesktop.GeoClue2" = {
       isAllowed = true;
       isSystem = false;
     };
