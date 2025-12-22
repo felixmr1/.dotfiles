@@ -91,7 +91,7 @@
       git.pagers = [
         {
           colorArg = "always";
-          pager = "delta --paging=never --side-by-side=false";
+          pager = "delta --paging=never --no-side-by-side";
         }
       ];
     };
