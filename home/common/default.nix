@@ -67,7 +67,7 @@
         condition = "gitdir:~/Dev/work/";
         contents = {
           user = {
-            email = "felix.todo@todo.com";
+            email = "felix.rosen@einride.tech";
           };
         };
       }
