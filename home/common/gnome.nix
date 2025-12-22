@@ -146,6 +146,12 @@ in
       tile-move-right = emptyKeybind;
       tile-move-up = emptyKeybind;
       tile-move-down = emptyKeybind;
+
+      # Disable Pop Shell's monitor movement (conflicts with GNOME workspace movement)
+      pop-monitor-left = emptyKeybind;
+      pop-monitor-right = emptyKeybind;
+      pop-monitor-up = emptyKeybind;
+      pop-monitor-down = emptyKeybind;
     };
 
     # Launcher and disable Super+number for dock apps (frees for workspace switching)
