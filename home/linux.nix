@@ -16,6 +16,7 @@
       wl-clipboard
       gcc
       google-chrome
+			google-cloud-sdk
     ];
   };
 }
