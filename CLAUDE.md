@@ -74,3 +74,4 @@ No Claude Code branding or co-author tags.
 - Mason is disabled; LSP servers installed via Nix
 - Neovim config is symlinked (writable) not copied to Nix store
 - Secrets sourced from `~/.secrets.fish` (not in repo)
+- Comments should be concise without parenthetical explanations

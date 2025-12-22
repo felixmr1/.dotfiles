@@ -1,33 +1,37 @@
 # Dotfiles
 
-Home Manager configuration for macOS and NixOS.
+NixOS + Home Manager configuration for multiple machines (Linux and macOS).
+
+## Hosts
+
+| Host | Platform | Usage |
+|------|----------|-------|
+| thinkpad-p1 | x86_64-linux | Work laptop (ThinkPad P1 Gen 6) |
+| macbook-pro | aarch64-darwin | Personal Mac |
+| nixos-vm | x86_64-linux | Testing VM |
 
 ## Installation
 
-### 1. Install Nix
+### NixOS
 
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+# System configuration
+sudo nixos-rebuild switch --flake ~/.dotfiles#thinkpad-p1
+
+# User configuration
+home-manager switch --flake ~/.dotfiles#felix@thinkpad-p1
 ```
 
-### 2. Apply configuration
+### macOS
 
 ```bash
-# Thinkpad X1 Carbon (work)
-home-manager switch --flake ~/.dotfiles#felix@thinkpad-x1-carbon
+# Install Nix
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 
-# MacBook Pro
+# User configuration
 home-manager switch --flake ~/.dotfiles#felix@macbook-pro
-
-# NixOS VM (testing)
-home-manager switch --flake ~/.dotfiles#felix@nixos-vm
 ```
 
 ## Secrets
 
 Secrets are managed via Bitwarden CLI and sourced from `~/.secrets.fish`:
-
-```bash
-bw get notes "api-keys" > ~/.secrets.fish
-chmod 600 ~/.secrets.fish
-```
