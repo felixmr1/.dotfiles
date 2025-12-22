@@ -15,6 +15,11 @@ in
   };
 
   dconf.settings = {
+    # Remap Caps Lock to Escape
+    "org/gnome/desktop/input-sources" = {
+      xkb-options = [ "caps:escape" ];
+    };
+
     # Enable extensions
     "org/gnome/shell" = {
       enabled-extensions = [
