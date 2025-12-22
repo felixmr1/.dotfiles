@@ -20,6 +20,13 @@ in
       xkb-options = [ "caps:escape" ];
     };
 
+    # Wallpapers (light and dark mode)
+    "org/gnome/desktop/background" = {
+      picture-uri = "file:///home/felix/.dotfiles/media/denis-istomin-sky_light.jpg";
+      picture-uri-dark = "file:///home/felix/.dotfiles/media/denis-istomin-eugenio_dark.jpg";
+      picture-options = "zoom";
+    };
+
     # Enable extensions
     "org/gnome/shell" = {
       enabled-extensions = [
