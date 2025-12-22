@@ -104,6 +104,8 @@ in
       move-to-workspace-9 = ["<Super><Shift>9"];
 
       # Move window between displays (j/k since h/l is workspace nav)
+      move-to-monitor-left = emptyKeybind;
+      move-to-monitor-right = emptyKeybind;
       move-to-monitor-up = ["<Super><Shift>Up" "<Super><Shift>k"];
       move-to-monitor-down = ["<Super><Shift>Down" "<Super><Shift>j"];
     };
