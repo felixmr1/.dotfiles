@@ -16,7 +16,7 @@
     };
   };
 
-  # Install both variants for darkman to switch between
+  # Install both Catppuccin variants for GNOME theme switching
   home.packages = with pkgs; [
     (catppuccin-gtk.override { variant = "latte"; accents = [ "blue" ]; })
     (catppuccin-gtk.override { variant = "mocha"; accents = [ "blue" ]; })

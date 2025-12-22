@@ -8,7 +8,6 @@
     ./nvim.nix
     ./claude.nix
     ./theme.nix
-    ./darkman.nix
   ];
 
   # Let Home Manager install and manage itself
