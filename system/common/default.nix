@@ -5,6 +5,7 @@
     ./audio.nix
     ./bluetooth.nix
     ./fonts.nix
+    ./displaylink.nix
   ];
 
   # Networking
