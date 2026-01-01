@@ -43,6 +43,7 @@ in
       screensaver = ["<Super>Escape"];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
       ];
     };
 
@@ -50,6 +51,12 @@ in
       name = "Terminal";
       command = "alacritty";
       binding = "<Super>t";
+    };
+
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      name = "Browser";
+      command = "xdg-open https://";
+      binding = "<Super>c";
     };
 
     # Default terminal for GNOME
