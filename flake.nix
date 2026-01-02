@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    # Test rtkit 0.14 PR - remove after PR merges
+    nixpkgs-rtkit-pr.url = "github:Gliczy/nixpkgs/rtkit";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,7 +22,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-darwin, catppuccin, nixos-hardware, ... }:
+  outputs = { self, nixpkgs, nixpkgs-rtkit-pr, home-manager, nix-darwin, catppuccin, nixos-hardware, ... }:
     let
       username = "felix";
     in
@@ -31,6 +34,15 @@
           modules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-p1
             ./system/hosts/thinkpad-p1
+
+            # Overlay to test rtkit 0.14 from PR #470633
+            ({ config, pkgs, ... }: {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  rtkit = nixpkgs-rtkit-pr.legacyPackages.x86_64-linux.rtkit;
+                })
+              ];
+            })
           ];
         };
       };

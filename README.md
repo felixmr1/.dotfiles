@@ -44,17 +44,24 @@ This is a one-time setup per machine. The driver will be cached in your Nix stor
 
 ## Known Issues
 
-### GNOME Shell crashes on resume from suspend
+### GNOME Shell crashes on resume from suspend (TESTING FIX)
 
-GNOME Shell restarts after waking from suspend due to rtkit-daemon's canary thread falsely detecting starvation during sleep. The daemon demotes real-time threads (including GNOME Shell's compositor) on resume, causing a crash.
+**Issue**: GNOME Shell restarts after waking from suspend due to rtkit-daemon's canary thread falsely detecting starvation during sleep. The daemon demotes real-time threads (including GNOME Shell's compositor) on resume, causing a crash.
 
 **Root cause**: rtkit 0.13 lacks suspend/resume support. The fix was merged upstream in October 2023 and released in rtkit 0.14 (December 2025).
 
-**Status**: nixpkgs still uses rtkit 0.13. Waiting for update to 0.14 or will apply systemd workaround.
+**Current status**: Testing rtkit 0.14 via flake overlay from [PR #470633](https://github.com/NixOS/nixpkgs/pull/470633). The overlay pulls rtkit from `github:Gliczy/nixpkgs/rtkit` and applies it system-wide. **This overlay MUST be removed once the PR merges into nixpkgs.**
+
+**To remove the overlay** (after PR merges):
+1. Remove the `nixpkgs-rtkit-pr` input from `flake.nix`
+2. Remove the `nixpkgs-rtkit-pr` parameter from outputs
+3. Remove the overlay module from `nixosConfigurations.thinkpad-p1.modules`
+4. Run `nix flake update` and `sudo nixos-rebuild switch`
 
 **References**:
+- [nixpkgs PR #470633 (rtkit 0.14)](https://github.com/NixOS/nixpkgs/pull/470633)
 - [GitHub Issue #13](https://github.com/heftig/rtkit/issues/13)
-- [Upstream fix PR](https://github.com/heftig/rtkit/pull/35)
+- [Upstream fix](https://github.com/heftig/rtkit/pull/35)
 - [rtkit GitLab](https://gitlab.freedesktop.org/pipewire/rtkit)
 
 ## Secrets

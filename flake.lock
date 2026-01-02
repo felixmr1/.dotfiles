@@ -90,6 +90,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-rtkit-pr": {
+      "locked": {
+        "lastModified": 1767022743,
+        "narHash": "sha256-WFdGGD0x/y9KCTbEf7WMAv3Izvw2cOn7LWebwXEx0XI=",
+        "owner": "Gliczy",
+        "repo": "nixpkgs",
+        "rev": "00a0f7b73955bc6e1603748433efe06b90a42e48",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gliczy",
+        "ref": "rtkit",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1766070988,
@@ -112,7 +128,8 @@
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_2",
+        "nixpkgs-rtkit-pr": "nixpkgs-rtkit-pr"
       }
     }
   },
