@@ -42,6 +42,21 @@ nix-prefetch-url --name displaylink-620.zip \
 
 This is a one-time setup per machine. The driver will be cached in your Nix store for future rebuilds.
 
+## Known Issues
+
+### GNOME Shell crashes on resume from suspend
+
+GNOME Shell restarts after waking from suspend due to rtkit-daemon's canary thread falsely detecting starvation during sleep. The daemon demotes real-time threads (including GNOME Shell's compositor) on resume, causing a crash.
+
+**Root cause**: rtkit 0.13 lacks suspend/resume support. The fix was merged upstream in October 2023 and released in rtkit 0.14 (December 2025).
+
+**Status**: nixpkgs still uses rtkit 0.13. Waiting for update to 0.14 or will apply systemd workaround.
+
+**References**:
+- [GitHub Issue #13](https://github.com/heftig/rtkit/issues/13)
+- [Upstream fix PR](https://github.com/heftig/rtkit/pull/35)
+- [rtkit GitLab](https://gitlab.freedesktop.org/pipewire/rtkit)
+
 ## Secrets
 
 Secrets are managed via Bitwarden CLI and sourced from `~/.secrets.fish`:
