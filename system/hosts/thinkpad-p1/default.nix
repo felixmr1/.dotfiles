@@ -20,24 +20,20 @@
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = false;
+    open = false; # Use proprietary driver for better compatibility
     nvidiaSettings = true;
     prime = {
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
+      # Run `lspci | grep -E "VGA|3D"` to find your bus IDs
+      # Format: "PCI:X:Y:Z" where X:Y.Z is from lspci output
+      intelBusId = "PCI:0:2:0";     # Adjust after lspci check
+      nvidiaBusId = "PCI:1:0:0";    # Adjust after lspci check
       offload = {
         enable = true;
-        enableOffloadCmd = true;
+        enableOffloadCmd = true;    # Provides `nvidia-offload` command
       };
     };
   };
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  # NVIDIA suspend/resume fix: preserve video memory across sleep cycles
-  boot.kernelParams = [
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-  ];
 
   # Power management (important for laptop battery life)
   powerManagement.enable = true;
