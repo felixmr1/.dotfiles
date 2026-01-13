@@ -45,12 +45,10 @@
     terraform-ls
     nodePackages.typescript-language-server
 
-    # Git/GitHub
-    gh
-
     # Utils
     bitwarden-cli
     yq
+    gh
     mermaid-cli
   ];
 

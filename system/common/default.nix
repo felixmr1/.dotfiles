@@ -6,6 +6,7 @@
     ./bluetooth.nix
     ./fonts.nix
     ./displaylink.nix
+    ./fhs.nix
   ];
 
   # Networking

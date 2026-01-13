@@ -18,5 +18,7 @@
   # Thinkpad-specific packages
   home.packages = with pkgs; [
     slack
+		mcap-cli
+		gnumake
   ];
 }
