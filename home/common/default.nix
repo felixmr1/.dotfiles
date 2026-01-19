@@ -38,7 +38,8 @@
 
     # LSP servers and linters
     lua-language-server
-    nil
+    nixd
+    nixfmt-rfc-style
     gopls
     golangci-lint
     pyright

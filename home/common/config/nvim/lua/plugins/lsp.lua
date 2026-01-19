@@ -18,6 +18,26 @@ return {
         clangd = {
           filetypes = { "c", "cpp", "objc", "objcpp" }, -- Exclude proto
         },
+        nixd = {
+          settings = {
+            nixd = {
+              nixpkgs = {
+                expr = "import <nixpkgs> { }",
+              },
+              formatting = {
+                command = { "nixfmt" },
+              },
+              options = {
+                nixos = {
+                  expr = '(builtins.getFlake "/home/felix/.dotfiles").nixosConfigurations.thinkpad-p1.options',
+                },
+                home_manager = {
+                  expr = '(builtins.getFlake "/home/felix/.dotfiles").homeConfigurations."felix@thinkpad-p1".options',
+                },
+              },
+            },
+          },
+        },
         gopls = {
           settings = {
             gopls = {
