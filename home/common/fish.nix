@@ -28,6 +28,11 @@
       # Disable greeting
       set fish_greeting
 
+      # Show nix shell indicator if in nix develop
+      if set -q NIX_SHELL_NAME
+        set fish_greeting "🔨 nix: $NIX_SHELL_NAME"
+      end
+
       # Source secrets (API keys, tokens - not in version control)
       test -f "$HOME/.secrets.fish"; and source "$HOME/.secrets.fish"
 
