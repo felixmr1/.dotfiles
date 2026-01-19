@@ -28,11 +28,6 @@
       # Disable greeting
       set fish_greeting
 
-      # Show nix shell indicator if in nix develop
-      if set -q NIX_SHELL_NAME
-        set fish_greeting "🔨 nix: $NIX_SHELL_NAME"
-      end
-
       # Source secrets (API keys, tokens - not in version control)
       test -f "$HOME/.secrets.fish"; and source "$HOME/.secrets.fish"
 
@@ -43,6 +38,7 @@
       set pure_symbol_git_stash ""
       set pure_symbol_git_unpulled_commits "🔻"
       set pure_symbol_git_unpushed_commits "🔺"
+      set pure_symbol_nixdevshell_prefix "🔨"
 
       # Pure colors
       set pure_color_primary blue
@@ -55,6 +51,7 @@
       # Pure features
       set pure_enable_git true
       set pure_enable_virtualenv true
+      set pure_enable_nixdevshell true
       set pure_show_system_time false
       set pure_check_for_new_release false
       set pure_reverse_prompt_symbol_in_vimode true
