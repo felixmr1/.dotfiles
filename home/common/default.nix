@@ -28,6 +28,9 @@
     ripgrep
     opencode
 
+    # GUI tools
+    vscode
+
     # Build tools (for neovim treesitter)
     tree-sitter
 
