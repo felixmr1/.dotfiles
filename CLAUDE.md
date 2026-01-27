@@ -31,6 +31,7 @@ Be an opinionated expert in Linux, Nix, and NixOS. Take a teaching approach - Fe
 | Host | Platform | Usage |
 |------|----------|-------|
 | thinkpad-p1 | x86_64-linux | Work laptop (ThinkPad P1 Gen 6) |
+| thinkpad-t14 | x86_64-linux | Personal laptop (ThinkPad T14 Gen 1) |
 | macbook-pro | aarch64-darwin | Personal Mac |
 
 ## Commands
