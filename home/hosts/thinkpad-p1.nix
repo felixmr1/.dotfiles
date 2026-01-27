@@ -15,6 +15,16 @@
     ANTHROPIC_VERTEX_PROJECT_ID = "e-gemini-cli-prod";
   };
 
+  # Work git configuration
+  programs.git.includes = [
+    {
+      condition = "gitdir:~/Dev/work/";
+      contents = {
+        user.email = "felix.rosen@einride.tech";
+      };
+    }
+  ];
+
   # Thinkpad-specific packages
   home.packages = with pkgs; [
     slack

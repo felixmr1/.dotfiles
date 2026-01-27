@@ -65,14 +65,6 @@
         email = "felix.m.rosen@gmail.com";
       };
     };
-    includes = [
-      {
-        condition = "gitdir:~/Dev/work/";
-        contents = {
-          user.email = "felix.rosen@einride.tech";
-        };
-      }
-    ];
   };
 
   # Delta (git pager)

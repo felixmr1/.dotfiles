@@ -45,6 +45,23 @@
             })
           ];
         };
+
+        thinkpad-t14 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-t14
+            ./system/hosts/thinkpad-t14
+
+            # Overlay to test rtkit 0.14 from PR #470633
+            ({ config, pkgs, ... }: {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  rtkit = nixpkgs-rtkit-pr.legacyPackages.x86_64-linux.rtkit;
+                })
+              ];
+            })
+          ];
+        };
       };
 
       # Home Manager configurations
@@ -55,6 +72,15 @@
           modules = [
             catppuccin.homeModules.catppuccin
             ./home/hosts/thinkpad-p1.nix
+          ];
+        };
+
+        # ThinkPad T14 Gen 1 (personal laptop, Linux)
+        "${username}@thinkpad-t14" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [
+            catppuccin.homeModules.catppuccin
+            ./home/hosts/thinkpad-t14.nix
           ];
         };
 
