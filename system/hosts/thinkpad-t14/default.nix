@@ -29,6 +29,9 @@
   # Power management for laptop battery life
   powerManagement.enable = true;
   services.thermald.enable = true;
+
+  # TLP conflicts with GNOME's power-profiles-daemon
+  services.power-profiles-daemon.enable = false;
   services.tlp = {
     enable = true;
     settings = {
