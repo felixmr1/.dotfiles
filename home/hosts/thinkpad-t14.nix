@@ -15,8 +15,10 @@
 
     # Gaming
     steam
+    mangohud
+    protonup-qt
 
-    # Utilities
-    # Add your personal tools here
+    # VPN
+    mullvad-vpn
   ];
 }
